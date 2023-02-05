@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head />
       <body className="bg-primary-150 overflow-y-scroll">
         <LayoutHeader />
-        <div className="px-[150px]">{children}</div>
+        <div className="px-[150px] bg-inherit">{children}</div>
       </body>
     </html>
   );
