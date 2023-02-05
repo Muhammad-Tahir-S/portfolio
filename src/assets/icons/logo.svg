@@ -1,0 +1,10 @@
+<svg
+viewBox="0 0 42 42" 
+width="42"
+height='42'
+shape-rendering="geometricPrecision" 
+text-rendering="geometricPrecision"
+>
+<ellipse rx="20" ry="20" transform="translate(21 21)" fill="inherit" stroke="inherit" stroke-width='2'/>
+    <text x="50%" y="50%" text-anchor="middle" stroke="inherit" stroke-width="1" dy=".3em">MT</text>
+</svg>

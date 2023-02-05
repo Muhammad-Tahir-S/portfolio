@@ -1,18 +1,16 @@
-import './globals.css'
+"use client";
+import "./globals.css";
+import { ReactNode } from "react";
+import LayoutHeader from "@/components/Header";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
-      <body>{children}</body>
+      <body className="bg-primary-150 overflow-y-scroll">
+        <LayoutHeader />
+        <div className="px-[150px]">{children}</div>
+      </body>
     </html>
-  )
+  );
 }
