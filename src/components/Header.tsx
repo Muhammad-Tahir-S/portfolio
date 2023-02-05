@@ -21,6 +21,11 @@ const NavItemCon = tw.div`
 flex bg-bg h-fit
 gap-4 items-center`;
 
+const LogoSvg = tw(Logo)`
+stroke-primary-700 fill-transparent 
+hover:fill-primary-200 ease-in 
+transition-colors duration-150`;
+
 export default function LayoutHeader() {
   const navItems = [
     {
@@ -53,7 +58,7 @@ export default function LayoutHeader() {
     >
       <Nav>
         <a href="/" className="h-fit">
-          <Logo className="stroke-primary-700 fill-transparent hover:fill-primary-200" />
+          <LogoSvg />
         </a>
         <NavItemCon>
           {navItems.map((item, idx) => (

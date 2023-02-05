@@ -28,7 +28,14 @@ export default function Text({
   className,
 }: IText) {
   return (
-    <p className={clsx(className, getVariant(variant), getColor(color))}>
+    <p
+      className={clsx(
+        "ease-in transition-colors duration-100",
+        className,
+        getVariant(variant),
+        getColor(color)
+      )}
+    >
       {children}
     </p>
   );
