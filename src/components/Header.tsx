@@ -53,7 +53,9 @@ export default function LayoutHeader() {
     <Header
       className={clsx(
         scrollDirection === "down" ? `-top-[74px]` : "top-0",
-        scrollY > HEADER_HEIGHT ? "shadow-header backdrop-blur-sm" : ""
+        scrollY > HEADER_HEIGHT && scrollDirection === "up"
+          ? "shadow-header backdrop-blur-sm"
+          : ""
       )}
     >
       <Nav>
