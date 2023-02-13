@@ -18,7 +18,7 @@ flex flex-1 justify-between
 py-4 px-[60px] h-fit `;
 
 const NavItemCon = tw.div`
-flex bg-bg h-fit
+flex bg-bg h-fit justify-self-end
 gap-4 items-center`;
 
 const LogoSvg = tw(Logo)`
@@ -59,12 +59,12 @@ export default function LayoutHeader() {
       )}
     >
       <Nav>
-        <a href="/" className="h-fit">
+        <a href="/" className="h-fit nav-logo">
           <LogoSvg />
         </a>
         <NavItemCon>
           {navItems.map((item, idx) => (
-            <a href={item.to} key={idx}>
+            <a href={item.to} key={idx} className="nav-item">
               <Text
                 variant="p1"
                 color="white"
@@ -75,7 +75,7 @@ export default function LayoutHeader() {
               </Text>
             </a>
           ))}
-          <Button>Resume</Button>
+          <Button className="nav-resume-btn">Resume</Button>
         </NavItemCon>
       </Nav>
     </Header>
