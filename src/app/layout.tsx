@@ -1,6 +1,6 @@
 "use client";
 import "./globals.css";
-import { ReactNode, useLayoutEffect, useRef } from "react";
+import React, { ReactNode, useLayoutEffect, useRef } from "react";
 import LayoutHeader from "@/components/Header";
 import { gsap } from "gsap";
 import Logo from "@/assets/icons/load-logo.svg";
@@ -9,30 +9,20 @@ import tw from "tailwind-styled-components";
 export default function RootLayout({ children }: { children: ReactNode }) {
   const bodyRef = useRef<HTMLBodyElement>(null);
 
+  if (typeof document === "undefined") {
+    React.useLayoutEffect = React.useEffect;
+  }
+
   useLayoutEffect(() => {
     const tl = gsap.timeline({});
 
     let ctx = gsap.context(() => {
       tl.from(".center-load-logo", {
         display: "block",
-        drawSVG: "0%",
         opacity: 0,
         ease: "expo",
         duration: 1.5,
       });
-
-      // gsap.fromTo(
-      //   "#load-circle",
-      //   {
-      //     drawSVG: "0%",
-      //     delay: 0.1,
-      //   },
-      //   {
-      //     drawSVG: "100%",
-      //     duration: 1,
-      //   }
-      // );
-      //drawSvg animation not working
 
       tl.from(
         ".nav-logo",
