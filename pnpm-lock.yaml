@@ -11,6 +11,7 @@ specifiers:
   clsx: ^1.2.1
   eslint: 8.33.0
   eslint-config-next: 13.1.6
+  gsap: ^3.11.4
   next: 13.1.6
   postcss: ^8.4.21
   prettier: ^2.8.3
@@ -31,6 +32,7 @@ dependencies:
   clsx: 1.2.1
   eslint: 8.33.0
   eslint-config-next: 13.1.6_4vsywjlpuriuw3tl5oq6zy5a64
+  gsap: 3.11.4
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -3078,6 +3080,10 @@ packages:
 
   /grapheme-splitter/1.0.4:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
+    dev: false
+
+  /gsap/3.11.4:
+    resolution: {integrity: sha512-McHhEguHyExMMnjqKA8G+7TvxmlKQGMbjgwAilnFe1e4id7V/tFveRQ2YMZhTYu0oxHGWvbPltdVYQOu3z1SCA==}
     dev: false
 
   /has-bigints/1.0.2:
