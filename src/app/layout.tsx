@@ -1,6 +1,6 @@
 "use client";
 import "./globals.css";
-import { ReactNode, useLayoutEffect, useRef } from "react";
+import React, { ReactNode, useLayoutEffect, useRef } from "react";
 import LayoutHeader from "@/components/Header";
 import { gsap } from "gsap";
 import Logo from "@/assets/icons/load-logo.svg";
@@ -8,6 +8,10 @@ import tw from "tailwind-styled-components";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const bodyRef = useRef<HTMLBodyElement>(null);
+
+  if (typeof document === "undefined") {
+    React.useLayoutEffect = React.useEffect;
+  }
 
   useLayoutEffect(() => {
     const tl = gsap.timeline({});
