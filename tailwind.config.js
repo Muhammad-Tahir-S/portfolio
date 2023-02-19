@@ -29,6 +29,19 @@ module.exports = {
         800: "#F1DCFF",
         DEFAULT: "#11001C",
       },
+      secondary: {
+        100: "#EA8455",
+        150: "#EC8E63",
+        200: "#ED976F",
+        250: "#EFA07B",
+        300: "#F0A887",
+        400: "#F3BA9F",
+        500: "#F6CBB7",
+        600: "#F9DCCF",
+        700: "#FCEEE7",
+        800: "#FEF6F3",
+        DEFAULT: "#EA8455",
+      },
     },
     extend: {
       boxShadow: {
