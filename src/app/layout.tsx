@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}
         />
-        <LogoSvg />
+        <CenterLoadLogo />
         <ChildrenCon $sidebarOpen={sidebarOpen}>{children}</ChildrenCon>
       </Body>
     </html>
@@ -36,11 +36,11 @@ const Body = tw.body`
 bg-primary-150
 `;
 
-const LogoSvg = tw(Logo)`
+const CenterLoadLogo = tw(Logo)`
 hidden absolute left-[calc(50%_-_21px)] 
 top-[calc(50%_-_21px)] center-load-logo 
-stroke-primary-700 fill-transparent 
-hover:fill-primary-200 ease-in
+stroke-secondary-100 
+fill-primary-200 ease-in
 transition-colors duration-150`;
 
 const ChildrenCon = tw.div<{ $sidebarOpen: boolean }>`

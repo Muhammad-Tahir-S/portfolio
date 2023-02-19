@@ -16,6 +16,7 @@ export function useHeaderAnimations(ref: RefObject<HTMLBodyElement>) {
       tl.from(".nav-logo", {
         duration: 1.5,
         opacity: 0,
+        fill: "#39005F",
         x: window.innerWidth / 2,
         y: window.innerHeight / 2,
         xPercent: -50,

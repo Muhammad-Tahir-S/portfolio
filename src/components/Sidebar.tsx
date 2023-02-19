@@ -27,12 +27,12 @@ export default function Sidebar({
             onClick={closeSidebar}
             key={idx}
           >
-            <Text variant="p1" color="pri-700">
+            <Text variant="p1" color="sec-100">
               0{idx + 1}.
             </Text>
             <Text
               variant="p1"
-              color="white"
+              color="pri-700"
               className="hover:text-primary-700 "
             >
               {item.name}
@@ -50,7 +50,7 @@ const SidebarCon = tw.aside<{ $showSidebar: boolean }>`
 sidebar-container transition-all w-[200px] 
 min-w-[200px] min-[320px]:w-[300px] 
 fixed shadow-header backdrop-blur h-[100vh] 
-bg-primary-200 right-0 top-0 px-[30px] py-[21px] 
+bg-primary-150 right-0 top-0 px-[30px] py-[21px] 
 flex-col z-[60] items-center bottom-0 flex md:hidden 
 ${({ $showSidebar }) =>
   $showSidebar
@@ -58,7 +58,7 @@ ${({ $showSidebar }) =>
     : "invisbile  translate-x-[100vw] duration-300"}`;
 
 const CloseBtn = tw(XCircleIcon)`
-h-8 w-8 self-end stroke-primary-700
+h-8 w-8 self-end stroke-secondary-100
 `;
 
 const NavItemCon = tw.div`

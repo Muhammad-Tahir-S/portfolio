@@ -66,8 +66,8 @@ export default function LayoutHeader({
               <a href={item.to} key={idx} className="nav-item">
                 <Text
                   variant="p1"
-                  color="white"
-                  className="hover:text-primary-700"
+                  color="pri-700"
+                  className="hover:text-secondary-100"
                 >
                   <NumberSpan>0{idx + 1}.</NumberSpan>
                   {item.name}
@@ -127,14 +127,14 @@ bg-bg h-fit md:flex hidden
 gap-4 items-center`;
 
 const NumberSpan = tw.span`
-mr-2 text-primary-700`;
+mr-2 text-secondary-100`;
 
 const LogoSvg = tw(Logo)`
-stroke-primary-700 fill-transparent 
+stroke-secondary-100 fill-transparent 
 hover:fill-primary-200 ease-in 
 transition-colors duration-150`;
 
 const MenuBtn = tw(Bars3Icon)`
 h-8 w-8 nav-menu-btn md:hidden static 
-stroke-primary-700
+stroke-secondary-100
 `;
