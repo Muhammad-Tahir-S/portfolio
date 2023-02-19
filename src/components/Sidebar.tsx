@@ -5,18 +5,18 @@ import Text from "@/components/Text";
 import Button from "@/components/Button";
 
 export default function Sidebar({
-  sideBarRef,
+  sidebarRef,
   sidebarOpen,
   closeSidebar,
   navItems,
 }: {
-  sideBarRef: MutableRefObject<HTMLElement | null>;
+  sidebarRef: MutableRefObject<HTMLElement | null>;
   sidebarOpen: boolean;
   closeSidebar: () => void;
   navItems: { name: string; to: string }[];
 }) {
   return (
-    <SidebarCon ref={sideBarRef} $showSidebar={sidebarOpen}>
+    <SidebarCon ref={sidebarRef} $showSidebar={sidebarOpen}>
       <CloseBtn onClick={closeSidebar} />
 
       <NavItemCon>
@@ -51,11 +51,11 @@ sidebar-container transition-all w-[200px]
 min-w-[200px] min-[320px]:w-[300px] 
 fixed shadow-header backdrop-blur h-[100vh] 
 bg-primary-200 right-0 top-0 px-[30px] py-[21px] 
-flex-col z-[60] items-center bottom-0 flex md:invisible 
+flex-col z-[60] items-center bottom-0 flex md:hidden 
 ${({ $showSidebar }) =>
   $showSidebar
     ? "visible translate-x-[0vw] duration-500"
-    : "invisbile translate-x-[100vw] duration-300"}`;
+    : "invisbile  translate-x-[100vw] duration-300"}`;
 
 const CloseBtn = tw(XCircleIcon)`
 h-8 w-8 self-end stroke-primary-700

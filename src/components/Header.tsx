@@ -30,7 +30,7 @@ export default function LayoutHeader({
 }) {
   const sidebarRef = useRef(null);
 
-  const clickedOutsideSidebar = useOutsideClicked(sidebarRef);
+  const clickedOutsideSidebar = useOutsideClicked(sidebarRef, sidebarOpen);
   const scrollDirection = useScrollDirection();
   const { scrollY } = useScrollPosition();
 
@@ -83,7 +83,7 @@ export default function LayoutHeader({
       </Header>
 
       <Sidebar
-        sideBarRef={sidebarRef}
+        sidebarRef={sidebarRef}
         sidebarOpen={sidebarOpen}
         closeSidebar={closeSidebar}
         navItems={navItems}
