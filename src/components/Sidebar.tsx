@@ -1,23 +1,30 @@
-import { MutableRefObject } from "react";
+import { MutableRefObject, useEffect, useRef } from "react";
 import tw from "tailwind-styled-components";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import Text from "@/components/Text";
 import Button from "@/components/Button";
 import { gsap } from "gsap";
+import useOutsideClicked from "@/hooks/useOutsideClicked";
 
 type ISidebar = {
-  sidebarRef: MutableRefObject<HTMLElement | null>;
   sidebarOpen: boolean;
   closeSidebar: () => void;
   navItems: { name: string; to: string }[];
 };
 
 export default function Sidebar({
-  sidebarRef,
   sidebarOpen,
   closeSidebar,
   navItems,
 }: ISidebar) {
+  const sidebarRef = useRef(null);
+
+  const clickedOutsideSidebar = useOutsideClicked(sidebarRef, sidebarOpen);
+
+  useEffect(() => {
+    clickedOutsideSidebar ? closeSidebar() : null;
+  }, [clickedOutsideSidebar, closeSidebar]);
+
   function onCloseBtnClick() {
     closeSidebar();
     gsap.from(".open-menu-btn", {

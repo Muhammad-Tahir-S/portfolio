@@ -1,10 +1,4 @@
-import {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useRef,
-} from "react";
+import { Dispatch, SetStateAction, useCallback } from "react";
 import tw from "tailwind-styled-components";
 
 import Text from "@/components/Text";
@@ -13,7 +7,6 @@ import Logo from "@/assets/icons/logo.svg";
 
 import useScrollDirection from "@/hooks/useScrollDirection";
 import useScrollPosition from "@/hooks/useScrollPosition";
-import useOutsideClicked from "@/hooks/useOutsideClicked";
 
 import clsx from "clsx";
 import { Bars3Icon } from "@heroicons/react/24/outline";
@@ -30,9 +23,6 @@ export default function LayoutHeader({
   sidebarOpen: boolean;
   setSidebarOpen: Dispatch<SetStateAction<boolean>>;
 }) {
-  const sidebarRef = useRef(null);
-
-  const clickedOutsideSidebar = useOutsideClicked(sidebarRef, sidebarOpen);
   const scrollDirection = useScrollDirection();
   const { scrollY } = useScrollPosition();
 
@@ -49,10 +39,6 @@ export default function LayoutHeader({
       stagger: 0.2,
     });
   }
-
-  useEffect(() => {
-    clickedOutsideSidebar ? closeSidebar() : null;
-  }, [clickedOutsideSidebar, closeSidebar]);
 
   return (
     <>
@@ -91,7 +77,6 @@ export default function LayoutHeader({
       </Header>
 
       <Sidebar
-        sidebarRef={sidebarRef}
         sidebarOpen={sidebarOpen}
         closeSidebar={closeSidebar}
         navItems={navItems}
