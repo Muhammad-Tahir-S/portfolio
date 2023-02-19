@@ -5,6 +5,7 @@ import Logo from "@/assets/icons/logo.svg";
 import useScrollDirection from "@/hooks/useScrollDirection";
 import clsx from "clsx";
 import useScrollPosition from "@/hooks/useScrollPosition";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 
 const HEADER_HEIGHT = 74;
 
@@ -63,19 +64,26 @@ export default function LayoutHeader() {
           <LogoSvg />
         </a>
         <NavItemCon>
-          {navItems.map((item, idx) => (
-            <a href={item.to} key={idx} className="nav-item">
-              <Text
-                variant="p1"
-                color="white"
-                className="hover:text-primary-700"
-              >
-                <span className="mr-2 text-primary-700">0{idx + 1}.</span>
-                {item.name}
-              </Text>
-            </a>
-          ))}
-          <Button className="nav-resume-btn">Resume</Button>
+          {window.innerWidth > 1079 ? (
+            <>
+              {navItems.map((item, idx) => (
+                <a href={item.to} key={idx}>
+                  <Text
+                    variant="p1"
+                    color="white"
+                    className="hover:text-primary-700"
+                  >
+                    <span className="mr-2 text-primary-700">0{idx + 1}.</span>
+                    {item.name}
+                  </Text>
+                </a>
+              ))}
+
+              <Button>Resume</Button>
+            </>
+          ) : (
+            <Bars3Icon className="h-8 w-8" />
+          )}
         </NavItemCon>
       </Nav>
     </Header>
