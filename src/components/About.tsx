@@ -3,7 +3,7 @@ import Text from "./Text";
 export default function About() {
   return (
     <div className="flex flex-col">
-      <Text variant="L2" color="sec-200" uppercase>
+      <Text variant="L2" color="sec-200">
         Muhammad-Tahir Sanuth.
       </Text>
 

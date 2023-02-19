@@ -1,10 +1,13 @@
-import { MutableRefObject, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import tw from "tailwind-styled-components";
+
 import { XCircleIcon } from "@heroicons/react/24/outline";
+
 import Text from "@/components/Text";
 import Button from "@/components/Button";
-import { gsap } from "gsap";
 import useOutsideClicked from "@/hooks/useOutsideClicked";
+
+import { gsap } from "gsap";
 
 type ISidebar = {
   sidebarOpen: boolean;

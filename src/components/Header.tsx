@@ -1,16 +1,16 @@
 import { Dispatch, SetStateAction, useCallback } from "react";
 import tw from "tailwind-styled-components";
+import clsx from "clsx";
 
 import Text from "@/components/Text";
 import Button from "@/components/Button";
-import Logo from "@/assets/icons/logo.svg";
+import Sidebar from "./Sidebar";
 
 import useScrollDirection from "@/hooks/useScrollDirection";
 import useScrollPosition from "@/hooks/useScrollPosition";
 
-import clsx from "clsx";
 import { Bars3Icon } from "@heroicons/react/24/outline";
-import Sidebar from "./Sidebar";
+import Logo from "@/assets/icons/logo.svg";
 
 import { gsap } from "gsap";
 
@@ -45,6 +45,8 @@ export default function LayoutHeader({
       <Header
         className={clsx(
           scrollDirection === "down" ? `-top-[74px]` : "top-0",
+          //74 in -top-[74px] above is same value as HEADER_HEIGHT,
+          //adjust both accordingly or refactor
           scrollY > HEADER_HEIGHT && scrollDirection === "up"
             ? "shadow-header backdrop-blur-sm"
             : ""
