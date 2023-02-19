@@ -1,7 +1,17 @@
 import { ReactNode } from "react";
 import { clsx } from "clsx";
 
-type TextVariant = "H1" | "H2" | "H3" | "H4" | "H5" | "p1" | "p2" | "p3" | "p4";
+type TextVariant =
+  | "L1"
+  | "H1"
+  | "H2"
+  | "H3"
+  | "H4"
+  | "H5"
+  | "p1"
+  | "p2"
+  | "p3"
+  | "p4";
 
 type TextColor =
   | "white"
@@ -13,19 +23,29 @@ type TextColor =
   | "pri-500"
   | "pri-600"
   | "pri-700"
-  | "pri-800";
+  | "pri-800"
+  | "sec-100"
+  | "sec-200"
+  | "sec-300"
+  | "sec-400"
+  | "sec-500"
+  | "sec-600"
+  | "sec-700"
+  | "sec-800";
 
 interface IText {
   children: ReactNode;
   variant: TextVariant;
   color: TextColor;
   className?: string;
+  uppercase?: boolean;
 }
 export default function Text({
   children,
   variant = "p1",
   color = "white",
   className,
+  uppercase,
 }: IText) {
   return (
     <p
@@ -33,7 +53,8 @@ export default function Text({
         "ease-in transition-colors duration-100",
         className,
         getVariant(variant),
-        getColor(color)
+        getColor(color),
+        uppercase && "uppercase"
       )}
     >
       {children}
@@ -64,6 +85,23 @@ const getColor = (color: TextColor) => {
     case "pri-800":
       return "text-primary-800";
 
+    case "sec-100":
+      return "text-secondary-100";
+    case "sec-200":
+      return "text-secondary-200";
+    case "sec-300":
+      return "text-secondary-300";
+    case "sec-400":
+      return "text-secondary-400";
+    case "sec-500":
+      return "text-secondary-500";
+    case "sec-600":
+      return "text-secondary-600";
+    case "sec-700":
+      return "text-secondary-700";
+    case "sec-800":
+      return "text-secondary-800";
+
     default:
       break;
   }
@@ -71,6 +109,8 @@ const getColor = (color: TextColor) => {
 
 const getVariant = (variant: TextVariant) => {
   switch (variant) {
+    case "L1":
+      return "text-[60px]";
     case "H1":
       return "text-[36px]";
     case "H2":
