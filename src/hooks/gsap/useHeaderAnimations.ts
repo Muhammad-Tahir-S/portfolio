@@ -5,26 +5,32 @@ export function useHeaderAnimations(ref: RefObject<HTMLBodyElement>) {
   return useLayoutEffect(() => {
     const tl = gsap.timeline();
 
-    let ctx = gsap.context(() => {
-      tl.from(".center-load-logo", {
-        display: "block",
-        opacity: 0,
-        ease: "expo",
-        duration: 1.5,
-      });
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
-      tl.from(".nav-logo", {
-        duration: 1.5,
-        opacity: 0,
-        fill: "#39005F",
-        x: window.innerWidth / 2,
-        y: window.innerHeight / 2,
-        xPercent: -50,
-        yPercent: -50,
-        stagger: 0.2,
-        ease: "expo",
-        force3D: true,
-      });
+    let ctx = gsap.context(() => {
+      window.location.href === baseUrl
+        ? tl.from(".center-load-logo", {
+            display: "block",
+            opacity: 0,
+            ease: "expo",
+            duration: 1.5,
+          })
+        : null;
+
+      window.location.href === baseUrl
+        ? tl.from(".nav-logo", {
+            duration: 1.5,
+            opacity: 0,
+            fill: "#39005F",
+            x: window.innerWidth / 2,
+            y: window.innerHeight / 2,
+            xPercent: -50,
+            yPercent: -50,
+            stagger: 0.2,
+            ease: "expo",
+            force3D: true,
+          })
+        : null;
 
       tl.from(
         ".open-menu-btn",
@@ -61,17 +67,29 @@ export function useHeaderAnimations(ref: RefObject<HTMLBodyElement>) {
         2.5
       );
 
-      tl.from(
-        ".main",
-        {
-          duration: 2,
-          opacity: 0,
-          x: 40,
-          stagger: 0.2,
-          ease: "elastic",
-        },
-        3
-      );
+      window.location.href === baseUrl
+        ? tl.from(
+            ".main",
+            {
+              duration: 2,
+              opacity: 0,
+              x: 40,
+              stagger: 0.2,
+              ease: "elastic",
+            },
+            3
+          )
+        : tl.from(
+            ".main",
+            {
+              duration: 1,
+              opacity: 0,
+              x: 40,
+              stagger: 0.2,
+              ease: "elastic",
+            },
+            1
+          );
     }, ref);
 
     return () => ctx.revert();
