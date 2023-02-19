@@ -3,21 +3,34 @@ import tw from "tailwind-styled-components";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import Text from "@/components/Text";
 import Button from "@/components/Button";
+import { gsap } from "gsap";
+
+type ISidebar = {
+  sidebarRef: MutableRefObject<HTMLElement | null>;
+  sidebarOpen: boolean;
+  closeSidebar: () => void;
+  navItems: { name: string; to: string }[];
+};
 
 export default function Sidebar({
   sidebarRef,
   sidebarOpen,
   closeSidebar,
   navItems,
-}: {
-  sidebarRef: MutableRefObject<HTMLElement | null>;
-  sidebarOpen: boolean;
-  closeSidebar: () => void;
-  navItems: { name: string; to: string }[];
-}) {
+}: ISidebar) {
+  function onCloseBtnClick() {
+    closeSidebar();
+    gsap.from(".open-menu-btn", {
+      y: 40,
+      ease: "elastic",
+      duration: 2.5,
+      stagger: 0.2,
+    });
+  }
+
   return (
     <SidebarCon ref={sidebarRef} $showSidebar={sidebarOpen}>
-      <CloseBtn onClick={closeSidebar} />
+      <CloseBtn onClick={onCloseBtnClick} />
 
       <NavItemCon>
         {navItems.map((item, idx) => (
@@ -60,6 +73,7 @@ ${({ $showSidebar }) =>
 
 const CloseBtn = tw(XCircleIcon)`
 h-8 w-8 self-end stroke-secondary-100
+close-menu-btn
 `;
 
 const NavItemCon = tw.div`

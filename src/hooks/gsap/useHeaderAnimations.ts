@@ -27,13 +27,12 @@ export function useHeaderAnimations(ref: RefObject<HTMLBodyElement>) {
       });
 
       tl.from(
-        ".nav-menu-btn",
+        ".open-menu-btn",
         {
           duration: 2,
           opacity: 0,
           y: -40,
           ease: "elastic",
-          force3D: true,
         },
         2.5
       );
@@ -46,7 +45,6 @@ export function useHeaderAnimations(ref: RefObject<HTMLBodyElement>) {
           y: -30,
           stagger: 0.2,
           ease: "elastic",
-          force3D: true,
         },
         2.5
       );
@@ -59,7 +57,6 @@ export function useHeaderAnimations(ref: RefObject<HTMLBodyElement>) {
           x: 40,
           stagger: 0.2,
           ease: "elastic",
-          force3D: true,
         },
         2.5
       );
@@ -72,7 +69,6 @@ export function useHeaderAnimations(ref: RefObject<HTMLBodyElement>) {
           x: 40,
           stagger: 0.2,
           ease: "elastic",
-          force3D: true,
         },
         3
       );

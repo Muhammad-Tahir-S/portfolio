@@ -19,6 +19,8 @@ import clsx from "clsx";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import Sidebar from "./Sidebar";
 
+import { gsap } from "gsap";
+
 const HEADER_HEIGHT = 74;
 
 export default function LayoutHeader({
@@ -40,6 +42,12 @@ export default function LayoutHeader({
 
   function openSidebar() {
     setSidebarOpen(true);
+    gsap.from(".close-menu-btn", {
+      x: 60,
+      ease: "elastic",
+      duration: 2,
+      stagger: 0.2,
+    });
   }
 
   useEffect(() => {
@@ -135,6 +143,6 @@ hover:fill-primary-200 ease-in
 transition-colors duration-150`;
 
 const MenuBtn = tw(Bars3Icon)`
-h-8 w-8 nav-menu-btn md:hidden static 
+h-8 w-8 open-menu-btn md:hidden static 
 stroke-secondary-100
 `;
