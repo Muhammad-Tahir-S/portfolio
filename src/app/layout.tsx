@@ -45,7 +45,6 @@ transition-colors duration-150`;
 
 const ChildrenCon = tw.div<{ $sidebarOpen: boolean }>`
 main px-10 min-[320px]:px-[150px] bg-inherit h-full 
-
 ${({ $sidebarOpen }) =>
   $sidebarOpen
     ? "blur-sm md:blur-none transition-all md:transition-none pointer-events-none select-none"

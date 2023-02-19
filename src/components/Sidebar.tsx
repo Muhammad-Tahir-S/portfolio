@@ -55,7 +55,8 @@ flex-col z-[60] items-center bottom-0 flex md:hidden
 ${({ $showSidebar }) =>
   $showSidebar
     ? "visible translate-x-[0vw] duration-500"
-    : "invisbile  translate-x-[100vw] duration-300"}`;
+    : "invisbile  translate-x-[100vw] duration-300"}
+    `;
 
 const CloseBtn = tw(XCircleIcon)`
 h-8 w-8 self-end stroke-secondary-100
