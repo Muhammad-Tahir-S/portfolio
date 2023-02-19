@@ -1,10 +1,17 @@
 "use client";
 import "./globals.css";
+import { Open_Sans } from "@next/font/google";
+
 import React, { ReactNode, useRef, useState } from "react";
 import LayoutHeader from "@/components/Header";
 import Logo from "@/assets/icons/load-logo.svg";
 import tw from "tailwind-styled-components";
 import { useHeaderAnimations } from "@/hooks/gsap/useHeaderAnimations";
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -20,7 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head />
-      <Body ref={bodyRef}>
+      <Body className={openSans.className} ref={bodyRef}>
         <LayoutHeader
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}
