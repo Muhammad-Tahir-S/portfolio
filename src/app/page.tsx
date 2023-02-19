@@ -5,7 +5,7 @@ import tw from "tailwind-styled-components";
 // const inter = Inter({ subsets: ['latin'] });
 
 const Section = tw.section`
-bg-red-500 h-[100vh] flex flex-col justify-center
+h-[100vh] min-h-[100vh] items-start flex flex-col justify-center
 `;
 
 export default function Home() {

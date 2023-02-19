@@ -3,6 +3,7 @@ import { clsx } from "clsx";
 
 type TextVariant =
   | "L1"
+  | "L2"
   | "H1"
   | "H2"
   | "H3"
@@ -35,7 +36,7 @@ type TextColor =
 
 interface IText {
   children: ReactNode;
-  variant: TextVariant;
+  variant?: TextVariant;
   color: TextColor;
   className?: string;
   uppercase?: boolean;
@@ -52,7 +53,7 @@ export default function Text({
       className={clsx(
         "ease-in transition-colors duration-100",
         className,
-        getVariant(variant),
+        variant && getVariant(variant),
         getColor(color),
         uppercase && "uppercase"
       )}
@@ -110,7 +111,9 @@ const getColor = (color: TextColor) => {
 const getVariant = (variant: TextVariant) => {
   switch (variant) {
     case "L1":
-      return "text-[60px]";
+      return "text-[32px] md:text-[48px] lg:text-[60px]";
+    case "L2":
+      return "text-[24px] md:text-[36px] lg:text-[48px]";
     case "H1":
       return "text-[36px]";
     case "H2":
