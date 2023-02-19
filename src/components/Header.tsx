@@ -48,7 +48,7 @@ export default function LayoutHeader({
           //74 in -top-[74px] above is same value as HEADER_HEIGHT,
           //adjust both accordingly or refactor
           scrollY > HEADER_HEIGHT && scrollDirection === "up"
-            ? "shadow-header backdrop-blur-sm"
+            ? "shadow-header backdrop-blur-[6px]"
             : ""
         )}
       >
