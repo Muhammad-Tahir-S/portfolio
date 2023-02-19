@@ -4,14 +4,6 @@ import { XCircleIcon } from "@heroicons/react/24/outline";
 import Text from "@/components/Text";
 import Button from "@/components/Button";
 
-const SidebarCon = tw.aside<{ $showSidebar: boolean }>`
-w-[200px] min-w-[200px] min-[320px]:w-[300px] 
-fixed shadow-header backdrop-blur h-[100vh] 
-bg-primary-150 right-0 top-0 
-translate-x-0 duration-75 px-[30px] py-[21px] 
-flex-col z-[60] items-center bottom-0 flex md:hidden
-${({ $showSidebar }) => ($showSidebar ? "flex" : "hidden")}`;
-
 export default function Sidebar({
   ref,
   sidebarOpen,
@@ -25,12 +17,9 @@ export default function Sidebar({
 }) {
   return (
     <SidebarCon ref={ref} $showSidebar={sidebarOpen}>
-      <XCircleIcon
-        onClick={closeSidebar}
-        className="h-8 w-8 self-end stroke-primary-700"
-      />
+      <CloseBtn onClick={closeSidebar} />
 
-      <div className="flex-1 flex flex-col gap-[60px] mt-[50px] p-10">
+      <NavItemCon>
         {navItems.map((item, idx) => (
           <a
             className="flex flex-col items-center"
@@ -52,7 +41,23 @@ export default function Sidebar({
         ))}
 
         <Button>Resume</Button>
-      </div>
+      </NavItemCon>
     </SidebarCon>
   );
 }
+
+const SidebarCon = tw.aside<{ $showSidebar: boolean }>`
+w-[200px] min-w-[200px] min-[320px]:w-[300px] 
+fixed shadow-header backdrop-blur h-[100vh] 
+bg-primary-150 right-0 top-0 
+translate-x-0 duration-75 px-[30px] py-[21px] 
+flex-col z-[60] items-center bottom-0 flex md:hidden
+${({ $showSidebar }) => ($showSidebar ? "flex" : "hidden")}`;
+
+const CloseBtn = tw(XCircleIcon)`
+h-8 w-8 self-end stroke-primary-700
+`;
+
+const NavItemCon = tw.div`
+flex-1 flex flex-col gap-[60px] mt-[50px] p-10
+`;

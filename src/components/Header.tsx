@@ -59,7 +59,7 @@ export default function LayoutHeader() {
                   color="white"
                   className="hover:text-primary-700"
                 >
-                  <span className="mr-2 text-primary-700">0{idx + 1}.</span>
+                  <NumberSpan>0{idx + 1}.</NumberSpan>
                   {item.name}
                 </Text>
               </a>
@@ -68,10 +68,7 @@ export default function LayoutHeader() {
             <Button className="nav-resume-btn">Resume</Button>
           </NavItemCon>
 
-          <Bars3Icon
-            onClick={openSidebar}
-            className="h-8 w-8 nav-menu-btn stroke-primary-700"
-          />
+          <MenuBtn onClick={openSidebar} />
         </Nav>
       </Header>
 
@@ -119,7 +116,15 @@ const NavItemCon = tw.div`
 bg-bg h-fit md:flex hidden
 gap-4 items-center`;
 
+const NumberSpan = tw.span`
+mr-2 text-primary-700`;
+
 const LogoSvg = tw(Logo)`
 stroke-primary-700 fill-transparent 
 hover:fill-primary-200 ease-in 
 transition-colors duration-150`;
+
+const MenuBtn = tw(Bars3Icon)`
+h-8 w-8 nav-menu-btn md:hidden static 
+stroke-primary-700
+`;
