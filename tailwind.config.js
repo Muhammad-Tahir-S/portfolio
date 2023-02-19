@@ -6,11 +6,6 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      boxShadow: {
-        header: "0 10px 30px -10px rgba(2,12,27,0.7)",
-      },
-    },
     colors: {
       inherit: "inherit",
       transparent: "transparent",
@@ -25,6 +20,7 @@ module.exports = {
         100: "#11001C",
         150: "#24003C",
         200: "#39005F",
+        250: "#4E0081",
         300: "#6200A4",
         400: "#8C00E9",
         500: "#AC2FFF",
@@ -32,6 +28,15 @@ module.exports = {
         700: "#E3BAFF",
         800: "#F1DCFF",
         DEFAULT: "#11001C",
+      },
+    },
+    extend: {
+      boxShadow: {
+        header: "0 10px 30px -10px rgba(2,12,27,0.7)",
+      },
+      transitionProperty: {
+        height: "height",
+        padding: "padding",
       },
     },
   },
