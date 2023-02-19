@@ -1,12 +1,14 @@
 "use client";
 import "./globals.css";
-import React, { ReactNode, useRef } from "react";
+import React, { ReactNode, useRef, useState } from "react";
 import LayoutHeader from "@/components/Header";
 import Logo from "@/assets/icons/load-logo.svg";
 import tw from "tailwind-styled-components";
-import { useHeaderAnimations } from "@/gsap/header";
+import { useHeaderAnimations } from "@/hooks/gsap/useHeaderAnimations";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const bodyRef = useRef<HTMLBodyElement>(null);
 
   if (typeof document === "undefined") {
@@ -19,16 +21,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <head />
       <Body ref={bodyRef}>
-        <LayoutHeader />
+        <LayoutHeader
+          sidebarOpen={sidebarOpen}
+          setSidebarOpen={setSidebarOpen}
+        />
         <LogoSvg />
-        <ChildrenCon>{children}</ChildrenCon>
+        <ChildrenCon $sidebarOpen={sidebarOpen}>{children}</ChildrenCon>
       </Body>
     </html>
   );
 }
 
 const Body = tw.body`
-bg-primary-150 overflow-y-scroll
+bg-primary-150
 `;
 
 const LogoSvg = tw(Logo)`
@@ -38,6 +43,7 @@ stroke-primary-700 fill-transparent
 hover:fill-primary-200 ease-in 
 transition-colors duration-150`;
 
-const ChildrenCon = tw.div`
-main px-10 min-[320px]:px-[150px] bg-inherit
+const ChildrenCon = tw.div<{ $sidebarOpen: boolean }>`
+main px-10 min-[320px]:px-[150px] bg-inherit h-full
+${({ $sidebarOpen }) => ($sidebarOpen ? "blur-sm transition-all " : "")}
 `;

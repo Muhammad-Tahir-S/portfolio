@@ -5,18 +5,18 @@ import Text from "@/components/Text";
 import Button from "@/components/Button";
 
 export default function Sidebar({
-  ref,
+  sideBarRef,
   sidebarOpen,
   closeSidebar,
   navItems,
 }: {
-  ref: MutableRefObject<HTMLElement | null>;
+  sideBarRef: MutableRefObject<HTMLElement | null>;
   sidebarOpen: boolean;
   closeSidebar: () => void;
   navItems: { name: string; to: string }[];
 }) {
   return (
-    <SidebarCon ref={ref} $showSidebar={sidebarOpen}>
+    <SidebarCon ref={sideBarRef} $showSidebar={sidebarOpen}>
       <CloseBtn onClick={closeSidebar} />
 
       <NavItemCon>
@@ -47,12 +47,15 @@ export default function Sidebar({
 }
 
 const SidebarCon = tw.aside<{ $showSidebar: boolean }>`
-w-[200px] min-w-[200px] min-[320px]:w-[300px] 
+sidebar-container transition-all w-[200px] 
+min-w-[200px] min-[320px]:w-[300px] 
 fixed shadow-header backdrop-blur h-[100vh] 
-bg-primary-150 right-0 top-0 
-translate-x-0 duration-75 px-[30px] py-[21px] 
-flex-col z-[60] items-center bottom-0 flex md:hidden
-${({ $showSidebar }) => ($showSidebar ? "flex" : "hidden")}`;
+bg-primary-200 right-0 top-0 px-[30px] py-[21px] 
+flex-col z-[60] items-center bottom-0 flex md:invisible 
+${({ $showSidebar }) =>
+  $showSidebar
+    ? "visible translate-x-[0vw] duration-500"
+    : "invisbile translate-x-[100vw] duration-300"}`;
 
 const CloseBtn = tw(XCircleIcon)`
 h-8 w-8 self-end stroke-primary-700

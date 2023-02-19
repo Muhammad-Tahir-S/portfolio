@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useRef,
+} from "react";
 import tw from "tailwind-styled-components";
 
 import Text from "@/components/Text";
@@ -15,26 +21,30 @@ import Sidebar from "./Sidebar";
 
 const HEADER_HEIGHT = 74;
 
-export default function LayoutHeader() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
+export default function LayoutHeader({
+  sidebarOpen,
+  setSidebarOpen,
+}: {
+  sidebarOpen: boolean;
+  setSidebarOpen: Dispatch<SetStateAction<boolean>>;
+}) {
   const sidebarRef = useRef(null);
 
   const clickedOutsideSidebar = useOutsideClicked(sidebarRef);
   const scrollDirection = useScrollDirection();
   const { scrollY } = useScrollPosition();
 
-  useEffect(() => {
-    clickedOutsideSidebar ? closeSidebar() : null;
-  }, [clickedOutsideSidebar]);
+  const closeSidebar = useCallback(() => {
+    setSidebarOpen(false);
+  }, [setSidebarOpen]);
 
   function openSidebar() {
     setSidebarOpen(true);
   }
 
-  function closeSidebar() {
-    setSidebarOpen(false);
-  }
+  useEffect(() => {
+    clickedOutsideSidebar ? closeSidebar() : null;
+  }, [clickedOutsideSidebar, closeSidebar]);
 
   return (
     <>
@@ -73,7 +83,7 @@ export default function LayoutHeader() {
       </Header>
 
       <Sidebar
-        ref={sidebarRef}
+        sideBarRef={sidebarRef}
         sidebarOpen={sidebarOpen}
         closeSidebar={closeSidebar}
         navItems={navItems}
