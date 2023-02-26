@@ -10,7 +10,7 @@ import Contact from "@/components/sections/Contact";
 import Text from "@/components/Text";
 
 const Section = tw.section`
-h-[100vh] min-h-[100vh] items-start 
+min-h-[100vh] items-start 
 flex flex-col justify-center py-[100px]
 `;
 
