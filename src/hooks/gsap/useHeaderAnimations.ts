@@ -30,18 +30,38 @@ export function useHeaderAnimations(ref: RefObject<HTMLBodyElement>) {
             ease: "expo",
             force3D: true,
           })
-        : null;
+        : tl.from(
+            ".nav-logo",
+            {
+              duration: 2,
+              opacity: 0,
+              y: -40,
+              ease: "elastic",
+            },
+            1
+          );
 
-      tl.from(
-        ".open-menu-btn",
-        {
-          duration: 2,
-          opacity: 0,
-          y: -40,
-          ease: "elastic",
-        },
-        2.5
-      );
+      window.location.href === baseUrl
+        ? tl.from(
+            ".open-menu-btn",
+            {
+              duration: 2,
+              opacity: 0,
+              y: -40,
+              ease: "elastic",
+            },
+            2.5
+          )
+        : tl.from(
+            ".open-menu-btn",
+            {
+              duration: 2,
+              opacity: 0,
+              y: -40,
+              ease: "elastic",
+            },
+            1
+          );
 
       tl.from(
         ".nav-item",
@@ -88,7 +108,7 @@ export function useHeaderAnimations(ref: RefObject<HTMLBodyElement>) {
               stagger: 0.2,
               ease: "elastic",
             },
-            1
+            2
           );
     }, ref);
 
