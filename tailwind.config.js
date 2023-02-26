@@ -42,6 +42,13 @@ module.exports = {
         800: "#FEF6F3",
         DEFAULT: "#EA8455",
       },
+      gray: {
+        100: "#456697",
+        200: "#A5B9D6",
+        300: "#DE3163",
+
+        DEFAULT: "#456697",
+      },
     },
     extend: {
       boxShadow: {
