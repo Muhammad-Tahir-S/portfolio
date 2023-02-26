@@ -16,19 +16,19 @@ flex flex-col justify-center py-[100px]
 
 const sections = [
   {
-    to: "#about",
+    to: "about",
     element: <About />,
   },
   {
-    to: "#experience",
+    to: "experience",
     element: <Experience />,
   },
   {
-    to: "#work",
+    to: "work",
     element: <Work />,
   },
   {
-    to: "#contact",
+    to: "contact",
     element: <Contact />,
   },
 ];
