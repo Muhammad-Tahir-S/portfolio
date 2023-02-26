@@ -10,7 +10,7 @@ interface ButtonProps
 const WrapperButton = tw.button`
 rounded-[4px] relative text-[16px] 
 font-medium text-secondary-100 border
-border-seondary-700 ease-in transition-colors 
+border-secondary-100 ease-in transition-colors 
 duration-300 py-2 px-3 hover:bg-primary-200
 `;
 
