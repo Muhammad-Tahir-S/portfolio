@@ -14,7 +14,8 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  min-width: 300px;
+  overflow-x: scroll;
   color: white;
   scroll-behavior: smooth;
 }
@@ -22,4 +23,99 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.card {
+  --highlight: #c875ff;
+  --pink: #ff3f8e;
+  --bg: #39005f;
+  --hover-bg: #4e0081;
+  --color1: var(--highlight);
+  --color2: var(--pink);
+  --inline: 4px;
+  --block: 0;
+  --duration: 150ms;
+  --padding: 2px;
+  --border: 1px;
+  --radius: 8px;
+  /* box-shadow: inset 0 0 0 var(--border) grey; */
+  padding: var(--padding);
+  border-radius: calc(var(--radius) + var(--padding));
+  overflow: hidden;
+  display: grid;
+  margin-bottom: var(--gap);
+  cursor: pointer;
+}
+
+.inner {
+  background: var(--bg);
+  z-index: 2;
+  padding: 20px;
+  border-radius: var(--radius);
+}
+
+.tail {
+  transition: all var(--duration);
+  width: var(--inline);
+  height: var(--block);
+  background: var(--color1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.tail.top {
+  background-image: var(--color1);
+  height: var(--inline);
+  width: var(--block);
+  transition-delay: calc(var(--duration) * 2);
+}
+
+.tail.right {
+  right: 0;
+  left: unset;
+  background: var(--color1);
+  transition-delay: var(--duration);
+}
+
+.tail.bottom {
+  height: var(--inline);
+  width: var(--block);
+  bottom: 0;
+  right: 0;
+  left: unset;
+  top: unset;
+  background-image: var(--color1);
+  transition-delay: 0ms;
+}
+
+.tail.left {
+  bottom: 0;
+  top: unset;
+  transition-delay: calc(var(--duration) * 3);
+}
+
+.snake:where(.start, :hover) .tail.top {
+  transition-delay: var(--duration);
+}
+.snake:where(.start, :hover) .tail.right {
+  transition-delay: calc(var(--duration) * 2);
+}
+.snake:where(.start, :hover) .tail.bottom {
+  transition-delay: calc(var(--duration) * 3);
+}
+.snake:where(.start, :hover) .tail.left {
+  transition-delay: 0ms;
+}
+
+.snake {
+  position: relative;
+}
+
+.snake.start .tail {
+  --block: 0;
+}
+.snake:hover .tail {
+  --block: 100%;
 }

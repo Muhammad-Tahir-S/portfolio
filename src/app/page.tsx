@@ -1,11 +1,37 @@
-import About from "@/components/About";
+"use client";
+
 import tw from "tailwind-styled-components";
+
+import About from "@/components/sections/About";
+import Experience from "@/components/sections/Experience";
+import Work from "@/components/sections/Work";
+import Contact from "@/components/sections/Contact";
+
 import Text from "@/components/Text";
 
 const Section = tw.section`
 h-[100vh] min-h-[100vh] items-start 
-flex flex-col justify-center
+flex flex-col justify-center py-[100px]
 `;
+
+const sections = [
+  {
+    to: "#about",
+    element: <About />,
+  },
+  {
+    to: "#experience",
+    element: <Experience />,
+  },
+  {
+    to: "#work",
+    element: <Work />,
+  },
+  {
+    to: "#contact",
+    element: <Contact />,
+  },
+];
 
 export default function Home() {
   return (
@@ -25,12 +51,12 @@ export default function Home() {
           </Text>
         </div>
       </Section>
-      <Section id="about">
-        <About />
-      </Section>
-      <Section id="experience">Experience</Section>
-      <Section id="work">Work</Section>
-      <Section id="contact">Contact</Section>
+
+      {sections.map((sec) => (
+        <Section key={sec.to} id={sec.to}>
+          {sec.element}
+        </Section>
+      ))}
     </>
   );
 }
