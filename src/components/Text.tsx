@@ -32,7 +32,10 @@ type TextColor =
   | "sec-500"
   | "sec-600"
   | "sec-700"
-  | "sec-800";
+  | "sec-800"
+  | "gray-100"
+  | "gray-200"
+  | "gray-300";
 
 interface IText {
   children: ReactNode;
@@ -102,6 +105,13 @@ const getColor = (color: TextColor) => {
       return "text-secondary-700";
     case "sec-800":
       return "text-secondary-800";
+
+    case "gray-100":
+      return "text-gray-100";
+    case "gray-200":
+      return "text-gray-200";
+    case "gray-300":
+      return "text-gray-300";
 
     default:
       break;
