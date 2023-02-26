@@ -51,6 +51,9 @@ module.exports = {
         height: "height",
         padding: "padding",
       },
+      gridTemplateColumns: {
+        work: "repeat(auto-fill, minmax(300px, 1fr))",
+      },
     },
   },
   plugins: [],
