@@ -4,8 +4,8 @@ import Text from "../Text";
 
 export default function About() {
   return (
-    <PageSection number="03." title="Work">
-      <ul className="grid grid-cols-work list-none mt-[50px] gap-[15px] p-0 relative">
+    <PageSection number="03." title="Projects">
+      <ul className="grid grid-cols-work list-none mt-[24px] gap-[15px] p-0 relative">
         <ProjectCard />
         <ProjectCard />
         <ProjectCard />

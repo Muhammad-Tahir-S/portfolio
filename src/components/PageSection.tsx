@@ -5,7 +5,7 @@ type PageSection = { children: ReactNode; number: string; title: string };
 
 export default function PageSection({ children, number, title }: PageSection) {
   return (
-    <div className="flex flex-1 flex-col w-full">
+    <div className="flex flex-col w-full">
       <div className="relative w-fit">
         <Text
           variant="H2"

@@ -26,7 +26,7 @@ a {
 }
 
 .card {
-  --highlight: #c875ff;
+  --highlight: #ea8455;
   --pink: #ff3f8e;
   --bg: #39005f;
   --hover-bg: #4e0081;
@@ -34,10 +34,10 @@ a {
   --color2: var(--pink);
   --inline: 4px;
   --block: 0;
-  --duration: 150ms;
+  --duration: 100ms;
   --padding: 2px;
   --border: 1px;
-  --radius: 8px;
+  --radius: 4px;
   /* box-shadow: inset 0 0 0 var(--border) grey; */
   padding: var(--padding);
   border-radius: calc(var(--radius) + var(--padding));
@@ -49,9 +49,15 @@ a {
 
 .inner {
   background: var(--bg);
+  position: relative;
   z-index: 2;
   padding: 20px;
   border-radius: var(--radius);
+  transition: background-color 200ms linear;
+}
+
+.inner:hover {
+  background: var(--hover-bg);
 }
 
 .tail {
@@ -118,4 +124,8 @@ a {
 }
 .snake:hover .tail {
   --block: 100%;
+}
+
+button:hover .experience-tab-text {
+  color: #ea8455;
 }
