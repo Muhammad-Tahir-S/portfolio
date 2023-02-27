@@ -63,7 +63,7 @@ export default function ProjectCard({
               key={stack}
               variant="p3"
               className="transition-colors ease-in duration-200"
-              color={isHovering ? "gray-300" : "pri-700"}
+              color={isHovering ? "gray-300" : "gray-200"}
             >
               {stack}
             </Text>
