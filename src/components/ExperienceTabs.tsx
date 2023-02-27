@@ -18,7 +18,7 @@ export default function ExperienceTabs({
           <button
             key={item}
             onClick={() => setActiveTab(item)}
-            className={` w-full h-[40px] flex items-center justify-start py-2  hover:bg-primary-250 ml-[0.5px] relative px-6 `}
+            className={` w-full h-[40px] flex items-center justify-start py-2  hover:bg-primary-250 ml-[0.5px] relative px-6 transition-colors duration-200 ease-in `}
           >
             <Text
               variant="p1"
