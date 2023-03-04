@@ -11,7 +11,7 @@ import Text from "@/components/Text";
 
 const Section = tw.section`
 min-h-[100vh] items-start 
-flex flex-col justify-center py-[100px]
+flex flex-col justify-center 
 `;
 
 const sections = [

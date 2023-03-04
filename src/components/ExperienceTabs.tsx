@@ -12,7 +12,7 @@ export default function ExperienceTabs({
   setActiveTab,
 }: ExperienceTabs) {
   return (
-    <div className="relative">
+    <div className="relative h-fit">
       <div className="w-fit flex flex-col gap-2 before:absolute before:h-full before:left-[0.5px] before:z-10 before:w-[1px] before:bg-gray-100 before:shadow-lg ">
         {items.map((item) => (
           <button
