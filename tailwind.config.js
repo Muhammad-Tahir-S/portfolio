@@ -57,6 +57,7 @@ module.exports = {
       transitionProperty: {
         height: "height",
         padding: "padding",
+        width: "width",
       },
       gridTemplateColumns: {
         work: "repeat(auto-fill, minmax(300px, 1fr))",
