@@ -6,7 +6,7 @@ import React, { ReactNode, useRef, useState } from "react";
 import LayoutHeader from "@/components/Header";
 import Logo from "@/assets/icons/load-logo.svg";
 import tw from "tailwind-styled-components";
-import { useHeaderAnimations } from "@/hooks/gsap/useHeaderAnimations";
+import { useHeaderTransitions } from "@/hooks/gsap/useHeaderTransitions";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     React.useLayoutEffect = React.useEffect;
   }
 
-  useHeaderAnimations(bodyRef);
+  useHeaderTransitions(bodyRef);
 
   return (
     <html lang="en">
