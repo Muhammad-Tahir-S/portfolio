@@ -1,8 +1,7 @@
 import PageSection from "../PageSection";
 import ProjectCard from "../ProjectCard";
-import Text from "../Text";
 
-export default function About() {
+export default function Work() {
   return (
     <PageSection number="03." title="Projects">
       <ul className="grid grid-cols-work list-none mt-[24px] gap-[15px] p-0 relative">
