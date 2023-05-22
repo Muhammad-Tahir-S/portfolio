@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { Dispatch, SetStateAction } from "react";
 import Text from "./Text";
 
@@ -13,12 +14,21 @@ export default function ExperienceTabs({
 }: ExperienceTabs) {
   return (
     <div className="relative h-fit">
-      <div className="w-fit flex flex-col gap-2 before:absolute before:h-full before:left-[0.5px] before:z-10 before:w-[1px] before:bg-gray-100 before:shadow-lg ">
+      <div
+        className={
+          "md:w-fit flex md:flex-col mb-5 md:mb-0 px-10 md:pb-0 ml-[-40px] md:ml-0 md:px-0 overflow-x-auto md:overflow-x-hidden w-[calc(100%_+_100px)] overflow-y-hidden gap-2 before:absolute before:h-full before:left-[0.5px] before:z-10 before:w-[1px] md:before:bg-gray-100 before:shadow-lg experience-tabs"
+        }
+      >
         {items.map((item) => (
           <button
             key={item}
             onClick={() => setActiveTab(item)}
-            className={` w-full h-[40px] flex items-center justify-start py-2  hover:bg-primary-250 ml-[0.5px] relative px-6 transition-colors duration-200 ease-in `}
+            className={clsx(
+              "w-fit md:w-full h-[40px] flex items-center justify-start py-2  hover:bg-primary-250 ml-[0.5px] relative px-6 transition-colors duration-200 ease-in whitespace-nowrap",
+              {
+                "bg-primary-250 transition-colors": item === activeTab,
+              }
+            )}
           >
             <Text
               variant="p1"

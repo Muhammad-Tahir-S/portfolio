@@ -20,14 +20,14 @@ export default function Experience() {
   const { name, role, duration, url, duties } = activePlace;
 
   return (
-    <PageSection number="02." title="Places I've worked">
-      <div className="flex min-h-[350px]">
+    <PageSection number="02." title="Places I've worked" leftOffset>
+      <div className="flex flex-col md:flex-row min-h-[300px]">
         <ExperienceTabs
           items={places.map((p) => p?.name)}
           activeTab={activeTab}
           setActiveTab={setActiveTab}
         />
-        <div className="active-tab-content flex-1 px-5 py-1">
+        <div className="active-tab-content h-auto flex-1 px-5 pb-1">
           <Text variant="H4" color="pri-700">
             {role} <span className="text-secondary-100"> @ </span>
             <span className="text-secondary-100 relative">
@@ -70,14 +70,14 @@ const places = [
     duration: "Aug 2022 - Present",
     url: "https://codygo.com",
     duties: [
-      "Planned application architectures along with backend and devops teams.",
-      "Implemented pixel-perfect designs to client specification with mordern, scalable code.",
-      "Wrote tests for pages, components, and network requests.",
-      "Used a variety of technologies such as React, Next.js, Typescript, Javascript, Chart.js, Cypress, Jest, etc.",
+      "Plan application architectures along with backend and devops teams.",
+      "Implement pixel-perfect designs to client specification with mordern, scalable code.",
+      "Write tests for pages, components, and network requests.",
+      "Use a variety of technologies such as React, Next.js, Typescript, Javascript, Chart.js, Cypress, Jest, etc.",
     ],
   },
   {
-    name: "Pramie Technologies",
+    name: "Pramie",
     role: "Frontend Developer",
     duration: "Feb 2022 - Jan 2023",
     url: "https://www.linkedin.com/company/pramie-tech/", //change to pramie.xyz once website is back up
