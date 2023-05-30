@@ -27,7 +27,7 @@ export default function Experience() {
           activeTab={activeTab}
           setActiveTab={setActiveTab}
         />
-        <div className="active-tab-content h-auto flex-1 px-5 pb-1">
+        <div className="active-tab-content flex-1 px-5 pb-1 h-[260px] min-h-[260px]">
           <Text variant="H4" color="pri-700">
             {role} <span className="text-secondary-100"> @ </span>
             <span className="text-secondary-100 relative">

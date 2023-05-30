@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           setSidebarOpen={setSidebarOpen}
         />
         <CenterLoadLogo />
-        <ChildrenCon $sidebarOpen={sidebarOpen}>{children}</ChildrenCon>
+        <LayoutBody $sidebarOpen={sidebarOpen}>{children}</LayoutBody>
       </Body>
     </html>
   );
@@ -50,8 +50,8 @@ stroke-secondary-100
 fill-primary-200 ease-in
 transition-colors duration-150`;
 
-const ChildrenCon = tw.div<{ $sidebarOpen: boolean }>`
-main px-[60px] sm:px-[80px] md:px-[130px] lg:px-[150px]  
+const LayoutBody = tw.div<{ $sidebarOpen: boolean }>`
+main pt-10 sm:pt-0 px-[60px] sm:px-[80px] md:px-[130px] lg:px-[150px]  
 bg-inherit h-full 
 ${({ $sidebarOpen }) =>
   $sidebarOpen
