@@ -6,6 +6,7 @@ import { XCircleIcon } from "@heroicons/react/24/outline";
 import Text from "@/components/Text";
 import Button from "@/components/Button";
 import useOutsideClicked from "@/hooks/useOutsideClicked";
+import Resume from "@/utils/my-resume.pdf";
 
 import { gsap } from "gsap";
 
@@ -63,7 +64,9 @@ export default function Sidebar({
           </a>
         ))}
 
-        <Button>Resume</Button>
+        <a href={Resume} rel="noopener noreferrer" target="_blank">
+          <Button>Resume</Button>
+        </a>
       </NavItemCon>
     </SidebarCon>
   );

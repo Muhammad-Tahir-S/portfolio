@@ -13,6 +13,7 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import Logo from "@/assets/icons/logo.svg";
 
 import { gsap } from "gsap";
+import Resume from "@/utils/my-resume.pdf";
 
 const HEADER_HEIGHT = 74;
 
@@ -71,7 +72,9 @@ export default function LayoutHeader({
               </a>
             ))}
 
-            <Button className="nav-resume-btn">Resume</Button>
+            <a href={Resume} rel="noopener noreferrer" target="_blank">
+              <Button className="nav-resume-btn">Resume</Button>
+            </a>
           </NavItemCon>
 
           <MenuBtn onClick={openSidebar} />
