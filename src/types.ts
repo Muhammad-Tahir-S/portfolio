@@ -3,5 +3,5 @@ export type Experience = {
   role: string;
   duration: string;
   url?: string;
-  duties?: string[];
+  duties?: (string | { text: string; link: string })[];
 };

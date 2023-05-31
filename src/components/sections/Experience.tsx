@@ -4,6 +4,7 @@ import Text from "../Text";
 import { usePrevious } from "@/hooks/usePrevious";
 import ExperienceTabs from "../ExperienceTabs";
 import { useExperienceTransitions } from "@/hooks/gsap/useExperienceTransitions";
+import tw from "tailwind-styled-components";
 
 export default function Experience() {
   const [activeTab, setActiveTab] = useState("Codygo");
@@ -16,6 +17,7 @@ export default function Experience() {
     role: "",
     duration: "",
     url: "",
+    duties: undefined,
   };
   const { name, role, duration, url, duties } = activePlace;
 
@@ -27,41 +29,77 @@ export default function Experience() {
           activeTab={activeTab}
           setActiveTab={setActiveTab}
         />
-        <div className="active-tab-content flex-1 px-5 pb-1 h-[260px] min-h-[260px]">
+        <DutyContainer className="">
           <Text variant="H4" color="pri-700">
             {role} <span className="text-secondary-100"> @ </span>
-            <span className="text-secondary-100 relative">
-              <a
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                className="cursor-pointer after:absolute after:w-0 after:top-[100%] after:left-0 after:bg-secondary-100 hover:after:w-full hover:after:h-[1px] hover:after:transition-width after:ease-in hover:after:duration-500"
-              >
+            <span className="relative">
+              <UnderlinedLink href={url} target="_blank" rel="noreferrer">
                 {name}
-              </a>
+              </UnderlinedLink>
             </span>
           </Text>
+
           <Text variant="p2" color="gray-200" className="italic">
             {duration}
           </Text>
+
           <ul className="mt-5">
-            {duties?.map((duty, i) => (
-              <li key={`${duty}_${i}`} className="relative">
-                <Text
-                  variant="p1"
-                  color="gray-200"
-                  className="ml-6 before:content-['❃'] before:text-secondary-100 before:text-[21px] before:absolute before:top-[-5px] before:left-0 mb-4"
-                >
-                  {duty}
-                </Text>
-              </li>
-            ))}
+            {duties?.map((duty, i) => {
+              let formattedDuty: string | string[] = "";
+              if (typeof duty === "string") {
+                formattedDuty = duty;
+              } else {
+                const text = duty.text;
+                formattedDuty = text.split("__");
+              }
+              const [startOfText, hyperlink, remainingText] = formattedDuty;
+
+              return (
+                <li key={`${duty}_${i}`} className="relative">
+                  <Text
+                    variant="p1"
+                    color="gray-200"
+                    className="ml-6 before:content-['❃'] before:text-secondary-100 before:text-[21px] before:absolute before:top-[-5px] before:left-0 mb-4"
+                  >
+                    {typeof duty !== "string" ? (
+                      <span>
+                        {startOfText}
+                        <span className="relative">
+                          <UnderlinedLink
+                            href={duty.link}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {hyperlink}
+                          </UnderlinedLink>
+                        </span>
+                        {remainingText}
+                      </span>
+                    ) : (
+                      duty
+                    )}
+                  </Text>
+                </li>
+              );
+            })}
           </ul>
-        </div>
+        </DutyContainer>
       </div>
     </PageSection>
   );
 }
+
+const DutyContainer = tw.div`
+active-tab-content flex-1 px-5 pb-1 
+h-[260px] min-h-[260px]`;
+
+const UnderlinedLink = tw.a`
+cursor-pointer after:absolute after:w-0 
+after:top-[100%] after:left-0 after:bg-secondary-100 
+hover:after:w-full hover:after:h-[1px] 
+hover:after:transition-width after:ease-in 
+hover:after:duration-500 text-secondary-100
+`;
 
 const places = [
   {
@@ -81,15 +119,23 @@ const places = [
     role: "Frontend Developer",
     duration: "Feb 2022 - Jan 2023",
     url: "https://www.linkedin.com/company/pramie-tech/", //change to pramie.xyz once website is back up
+    duties: [
+      {
+        text: "Implemented upgrade to __Bloco v2__.",
+        link: "https://stagingv2.bloco.co.uk/",
+      },
+      {
+        text: "Maintained __FirstActive365's__ internal management software.",
+        link: "https://firstactive365.com/",
+      },
+      "Built first version of Virtual Office.",
+      "Peer reviewed teammate's code.",
+    ],
   },
   {
     name: "CodingBlindspots",
     role: "Frontend Developer Intern",
     duration: "Sep 2021 - Dec 2021",
-  },
-  {
-    name: "YK-Networks",
-    role: "Frontend Developer Intern",
-    duration: "Apr 2021 - Mar 2022",
+    duties: ["Implemented feature requests."],
   },
 ];

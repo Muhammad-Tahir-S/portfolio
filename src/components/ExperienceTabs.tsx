@@ -16,7 +16,7 @@ export default function ExperienceTabs({
     <div className="relative h-fit">
       <div
         className={
-          "md:w-fit flex md:flex-col mb-5 md:mb-0 px-10 md:pb-0 ml-[-40px] md:ml-0 md:px-0 overflow-x-auto md:overflow-x-hidden w-[calc(100%_+_100px)] overflow-y-hidden gap-2 before:absolute before:h-full before:left-[0.5px] before:z-10 before:w-[1px] md:before:bg-gray-100 before:shadow-lg experience-tabs"
+          "md:w-fit flex md:flex-col mb-5 md:mb-0 px-10 md:pb-0 ml-[-40px] md:ml-0 md:px-0 overflow-x-scroll md:overflow-x-hidden w-[calc(100%_+_100px)] overflow-y-hidden gap-2 before:absolute before:h-full before:left-[0.5px] before:z-10 before:w-[1px] md:before:bg-gray-100 before:shadow-lg experience-tabs"
         }
       >
         {items.map((item) => (
