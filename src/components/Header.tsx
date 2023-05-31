@@ -77,7 +77,9 @@ export default function LayoutHeader({
             </a>
           </NavItemCon>
 
-          <MenuBtn onClick={openSidebar} />
+          <MenuBtn onClick={openSidebar}>
+            <Bars3Icon className="stroke-secondary-100" />
+          </MenuBtn>
         </Nav>
       </Header>
 
@@ -132,7 +134,6 @@ stroke-secondary-100 fill-transparent
 hover:fill-primary-200 ease-in 
 transition-colors duration-150`;
 
-const MenuBtn = tw(Bars3Icon)`
+const MenuBtn = tw.button`
 h-8 w-8 open-menu-btn md:hidden static 
-stroke-secondary-100
 `;

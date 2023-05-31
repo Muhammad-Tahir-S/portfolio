@@ -41,7 +41,9 @@ export default function Sidebar({
 
   return (
     <SidebarCon ref={sidebarRef} $showSidebar={sidebarOpen}>
-      <CloseBtn onClick={onCloseBtnClick} />
+      <CloseBtn onClick={onCloseBtnClick}>
+        <XCircleIcon className="stroke-secondary-100" />
+      </CloseBtn>
 
       <NavItemCon>
         {navItems.map((item, idx) => (
@@ -84,8 +86,8 @@ ${({ $showSidebar }) =>
     : "invisbile  translate-x-[100vw] duration-300"}
     `;
 
-const CloseBtn = tw(XCircleIcon)`
-h-8 w-8 self-end stroke-secondary-100
+const CloseBtn = tw.button`
+h-8 w-8 self-end 
 close-menu-btn
 `;
 
