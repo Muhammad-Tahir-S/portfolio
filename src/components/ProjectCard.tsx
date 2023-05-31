@@ -1,5 +1,7 @@
+import { AddProjectCardTails } from "@/utils/funcs/addProjectCardTails";
 import { BeakerIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
+import tw from "tailwind-styled-components";
 import Text from "./Text";
 type Project = {
   title?: string;
@@ -15,23 +17,15 @@ export default function ProjectCard({
   url,
 }: Project) {
   const [isHovering, setIsHovering] = useState(false);
+
   useEffect(() => {
-    const cards: NodeListOf<HTMLElement> = document.querySelectorAll(`.card`);
-    // Add the tails to each card
-    cards?.forEach((card) => {
-      [`top`, `right`, `bottom`, `left`].forEach((side) => {
-        const tail = document.createElement(`div`);
-        tail.classList.add(`tail`, side);
-        card.appendChild(tail);
-      });
-    });
+    AddProjectCardTails();
   }, []);
 
   return (
-    <li
+    <Tail
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      className="card snake shadow w-full h-full hover:scale-[1.02]  transition-all ease-in duration-200 hover:shadow-2xl"
     >
       <div className="inner">
         <div className="flex justify-between">
@@ -39,23 +33,15 @@ export default function ProjectCard({
         </div>
 
         <a href={"url"} target="_blank" rel="noreferrer">
-          <Text
-            variant="H3"
-            color={isHovering ? "sec-100" : "pri-700"}
-            className="transition-colors ease-in duration-200 mt-4 md:mt-[35px]"
-          >
+          <Title variant="H3" color={isHovering ? "sec-100" : "pri-700"}>
             {title || "Title"}
-          </Text>
+          </Title>
         </a>
 
-        <Text
-          variant="p1"
-          color={isHovering ? "white" : "pri-600"}
-          className="mt-[10px] transition-colors ease-in duration-200"
-        >
+        <Description variant="p1" color={isHovering ? "white" : "pri-600"}>
           {description ||
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "}
-        </Text>
+        </Description>
 
         <div className="flex gap-2 mt-[15px]">
           {(techStack || ["React", "CSS", "HTML"])?.map((stack) => (
@@ -70,6 +56,19 @@ export default function ProjectCard({
           ))}
         </div>
       </div>
-    </li>
+    </Tail>
   );
 }
+
+const Tail = tw.li`
+card snake shadow w-full h-full hover:scale-[1.02]  
+transition-all ease-in duration-200 hover:shadow-2xl
+`;
+
+const Title = tw(Text)`
+transition-colors ease-in duration-200 mt-4 
+md:mt-[35px]`;
+
+const Description = tw(Text)`
+mt-[10px] transition-colors ease-in duration-200
+`;

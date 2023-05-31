@@ -13,7 +13,7 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import Logo from "@/assets/icons/logo.svg";
 
 import { gsap } from "gsap";
-import Resume from "@/utils/my-resume.pdf";
+import Resume from "@/utils/docs/my-resume.pdf";
 
 const HEADER_HEIGHT = 74;
 
