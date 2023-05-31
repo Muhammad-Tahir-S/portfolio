@@ -110,6 +110,30 @@ export function useHeaderTransitions(ref: RefObject<HTMLBodyElement>) {
             },
             2
           );
+
+      window.location.href === baseUrl
+        ? tl.from(
+            ".layout-svg",
+            {
+              duration: 2,
+              opacity: 0,
+              y: 40,
+              stagger: 0.2,
+              ease: "elastic",
+            },
+            3
+          )
+        : tl.from(
+            ".layout-svg",
+            {
+              duration: 1,
+              opacity: 0,
+              y: 40,
+              stagger: 0.2,
+              ease: "elastic",
+            },
+            2
+          );
     }, ref);
 
     return () => ctx.revert();
