@@ -42,7 +42,7 @@ export default function ProjectCard({
           <Text
             variant="H3"
             color={isHovering ? "sec-100" : "pri-700"}
-            className="transition-colors ease-in duration-200 mt-[35px]"
+            className="transition-colors ease-in duration-200 mt-4 md:mt-[35px]"
           >
             {title || "Title"}
           </Text>

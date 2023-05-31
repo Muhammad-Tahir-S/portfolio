@@ -60,7 +60,7 @@ module.exports = {
         width: "width",
       },
       gridTemplateColumns: {
-        work: "repeat(auto-fill, minmax(300px, 1fr))",
+        work: "repeat(auto-fill, minmax(240px, 1fr))",
       },
     },
   },
