@@ -91,7 +91,7 @@ export default function Experience() {
 
 const DutyContainer = tw.div`
 active-tab-content flex-1 px-5 pb-1 
-h-[260px] min-h-[260px]`;
+h-[260px] min-h-[260px] max-w-[620px]`;
 
 const UnderlinedLink = tw.a`
 cursor-pointer after:absolute after:w-0 
