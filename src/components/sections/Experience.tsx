@@ -113,10 +113,10 @@ const places = [
     duration: "Aug 2022 - Present",
     url: "https://codygo.com",
     duties: [
-      "Plan application architectures along with backend and devops teams.",
+      "Plan application architectures along with devops team.",
       "Implement pixel-perfect designs to client specification with mordern, scalable code.",
-      "Write tests for pages, components, and network requests.",
-      "Use a variety of technologies such as React, Next.js, Typescript, Javascript, Chart.js, Cypress, Jest, etc.",
+      "Mock implementation of architectural options to determine best fit.",
+      "Use a variety of technologies such as React, Next.js, Typescript, AWS Lambda, Node, Express, Chart.js, Cypress, Jest, etc.",
     ],
   },
   {

@@ -48,6 +48,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <CenterLoadLogo />
 
+        <LayoutBody $sidebarOpen={sidebarOpen}>{children}</LayoutBody>
+
         <FixedContactSection>
           <ContactSemiCircle>
             <ContactLink href={GITHUB_LINK} target="_blank">
@@ -65,8 +67,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <ScrollToTopBtn onClick={scrollToTop}>
           <FloweryLinkSvg />
         </ScrollToTopBtn>
-
-        <LayoutBody $sidebarOpen={sidebarOpen}>{children}</LayoutBody>
       </Body>
     </html>
   );
@@ -85,7 +85,7 @@ transition-colors duration-150`;
 
 const ScrollToTopBtn = tw.button`
 hidden md:block bottom-[20px]
-right-4 fixed layout-svg 
+md:right-[25px] lg:right-[39px] fixed layout-svg 
 cursor-pointer z-[999]
 `;
 
