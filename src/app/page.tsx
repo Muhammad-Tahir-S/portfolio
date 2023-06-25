@@ -43,11 +43,10 @@ export default function Home() {
           </Text>
 
           <Text variant="L1" color="white">
-            React Web Developer.
+            Software Developer.
           </Text>
           <Text variant="H5" color="pri-700" className="mt-5">
-            I build user interfaces into highly performant, accessible
-            applications.
+            I build fullstack, highly performant, accessible applications.
           </Text>
         </div>
       </Section>

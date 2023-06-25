@@ -148,3 +148,10 @@ button:hover .experience-tab-text {
 .experience-tabs::-webkit-scrollbar-track {
   background: #24003c;
 }
+
+.contact-semi-circle-icon {
+  @apply fill-primary-400  hover:fill-secondary-100 duration-300 transition-all pointer-events-auto absolute cursor-pointer w-6 h-6;
+}
+.contact-semi-circle-icon:hover {
+  @apply scale-125;
+}

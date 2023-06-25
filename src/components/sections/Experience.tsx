@@ -22,8 +22,13 @@ export default function Experience() {
   const { name, role, duration, url, duties } = activePlace;
 
   return (
-    <PageSection number="02." title="Places I've worked" leftOffset>
-      <div className="flex flex-col md:flex-row min-h-[300px]">
+    <PageSection
+      className="md:bg-primary-200 md:p-5 md:rounded-md md:drop-shadow-md"
+      number="02."
+      title="Places I've worked"
+      leftOffset
+    >
+      <div className="flex flex-col md:flex-row min-h-[300px] ">
         <ExperienceTabs
           items={places.map((p) => p?.name)}
           activeTab={activeTab}

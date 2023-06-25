@@ -6,6 +6,7 @@ type PageSection = {
   children: ReactNode;
   number: string;
   title: string;
+  className?: string;
   leftOffset?: boolean;
 };
 
@@ -14,16 +15,21 @@ export default function PageSection({
   number,
   title,
   leftOffset,
+  className,
 }: PageSection) {
   return (
     <div
-      className={clsx("flex flex-col w-full", { "lg:ml-[10vw]": leftOffset })}
+      className={clsx(
+        "flex flex-col w-full",
+        { "lg:ml-[10vw] lg:w-[80%] xl:w-[70%]": leftOffset },
+        className
+      )}
     >
       <div className="relative w-fit">
         <Text
           variant="H3"
           color="pri-700"
-          className="after:absolute after:h-[1px] after:bg-primary-600 after:w-[calc(100%_+_36px)] sm:after:w-[280px] after:left-0 after:sm:left-[100%] sm:after:ml-[30px] after:top-[calc(100%_+_8px)] sm:after:top-[50%] after:transition-all ease-in font-medium capitalize"
+          className="after:absolute after:h-[1px] after:bg-primary-600 after:w-[calc(100%_+_36px)] sm:after:w-[250px] after:left-0 after:sm:left-[100%] sm:after:ml-[30px] after:top-[calc(100%_+_8px)] sm:after:top-[50%] after:transition-all ease-in font-medium capitalize"
         >
           <span className="text-secondary-100 text-[18px] mr-2">{number}</span>
           {title}
