@@ -5,7 +5,7 @@ import Text from "../Text";
 export default function About() {
   return (
     <PageSection number="01." title="About">
-      <div className="flex justify-between px-10 w-full aspect-square mx-auto">
+      <div className="flex justify-between px-10 mx-auto">
         {/* <div className="w-[50%]">
           <div className="h-[50%] border-b border-r rounded-sm border-secondary-300 w-full">
             <Text variant="p2" color="pri-700">

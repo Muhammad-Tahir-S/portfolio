@@ -1,3 +1,4 @@
+import useWindowDimensions from "@/hooks/useWindowDimension";
 import clsx from "clsx";
 import { ReactNode } from "react";
 import Text from "./Text";
@@ -8,6 +9,7 @@ type PageSection = {
   title: string;
   className?: string;
   leftOffset?: boolean;
+  leftBackground?: boolean;
 };
 
 export default function PageSection({
@@ -16,16 +18,36 @@ export default function PageSection({
   title,
   leftOffset,
   className,
+  leftBackground,
 }: PageSection) {
+  const vw = useWindowDimensions();
+  const experienceSectionEl = document.querySelector("#experience");
+  const leftBackgroundWidth =
+    experienceSectionEl && vw.width > 1279
+      ? vw.width * 0.6 - 150 - (vw.width - 300) * 0.15
+      : experienceSectionEl && vw.width > 1023
+      ? vw.width * 0.6 - 150 - (vw.width - 300) * 0.1
+      : experienceSectionEl && vw.width > 767
+      ? vw.width * 0.6 - 100
+      : 0;
+
   return (
     <div
       className={clsx(
-        "flex flex-col w-full",
-        { "lg:ml-[10vw] lg:w-[80%] xl:w-[70%]": leftOffset },
+        "flex flex-col w-full ",
+        { "lg:mx-auto lg:w-[80%] xl:w-[70%]": leftOffset },
         className
       )}
     >
-      <div className="relative w-fit">
+      {leftBackground && (
+        <div
+          style={{
+            width: leftBackgroundWidth,
+          }}
+          className="hidden md:block absolute h-full bg-primary-100 left-0 top-0 z-0  rounded-l-md"
+        ></div>
+      )}
+      <div className="relative w-fit z-10">
         <Text
           variant="H3"
           color="pri-700"
@@ -35,7 +57,7 @@ export default function PageSection({
           {title}
         </Text>
       </div>
-      <div className="mt-10 h-full flex-1">{children}</div>
+      <div className="mt-10 h-full flex-1 z-10">{children}</div>
     </div>
   );
 }

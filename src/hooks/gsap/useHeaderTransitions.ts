@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { RefObject, useLayoutEffect } from "react";
 
-export function useHeaderTransitions(ref: RefObject<HTMLBodyElement>) {
+export function useHeaderTransitions(ref: RefObject<HTMLDivElement>) {
   return useLayoutEffect(() => {
     const tl = gsap.timeline();
 

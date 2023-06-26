@@ -35,8 +35,8 @@ const sections = [
 
 export default function Home() {
   return (
-    <>
-      <Section>
+    <div className="relative">
+      <Section className="">
         <div className="flex flex-col">
           <Text variant="L2" color="sec-100">
             Muhammad-Tahir Sanuth.
@@ -56,6 +56,6 @@ export default function Home() {
           {sec.element}
         </Section>
       ))}
-    </>
+    </div>
   );
 }

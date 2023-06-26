@@ -140,11 +140,13 @@ button:hover .experience-tab-text {
   height: 6px;
   width: 12px;
 }
-.experience-tabs::-webkit-scrollbar-thumb {
+
+/* .experience-tabs::-webkit-scrollbar-thumb {
   background-color: grey;
   border: 1px solid #24003c;
   border-radius: 10px;
-}
+} */
+
 .experience-tabs::-webkit-scrollbar-track {
   background: #24003c;
 }

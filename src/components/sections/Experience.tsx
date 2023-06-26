@@ -23,10 +23,11 @@ export default function Experience() {
 
   return (
     <PageSection
-      className="md:bg-primary-200 md:p-5 md:rounded-md md:drop-shadow-md"
+      className="md:bg-primary-200 md:p-5 md:rounded-md md:drop-shadow-2xl"
       number="02."
       title="Places I've worked"
       leftOffset
+      leftBackground
     >
       <div className="flex flex-col md:flex-row min-h-[300px] ">
         <ExperienceTabs

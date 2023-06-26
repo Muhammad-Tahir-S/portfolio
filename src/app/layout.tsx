@@ -26,7 +26,7 @@ const EMAIL_LINK = "mailto:mtz5prif@gmail.com";
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const bodyRef = useRef<HTMLBodyElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
 
   if (typeof document === "undefined") {
     React.useLayoutEffect = React.useEffect;
@@ -41,32 +41,34 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head />
-      <Body className={clsx("relative", openSans.className)} ref={bodyRef}>
-        <LayoutHeader
-          sidebarOpen={sidebarOpen}
-          setSidebarOpen={setSidebarOpen}
-        />
-        <CenterLoadLogo />
+      <Body className={clsx("relative", openSans.className)}>
+        <div className="fixed bg-primary-100 z-0 md:top-0 md:right-0 md:h-[100vh] md:w-[40vw] "></div>
+        <div className="relative" ref={bodyRef}>
+          <LayoutHeader
+            sidebarOpen={sidebarOpen}
+            setSidebarOpen={setSidebarOpen}
+          />
+          <CenterLoadLogo />
+          <LayoutBody $sidebarOpen={sidebarOpen}>{children}</LayoutBody>
 
-        <LayoutBody $sidebarOpen={sidebarOpen}>{children}</LayoutBody>
+          <FixedContactSection>
+            <ContactSemiCircle>
+              <ContactLink href={GITHUB_LINK} target="_blank">
+                <GithubSvg />
+              </ContactLink>
+              <ContactLink href={LINKEDIN_LINK} target="_blank">
+                <LinkedInSvg />
+              </ContactLink>
+              <ContactLink href={EMAIL_LINK} target="_blank">
+                <MailSvg />
+              </ContactLink>
+            </ContactSemiCircle>
+          </FixedContactSection>
 
-        <FixedContactSection>
-          <ContactSemiCircle>
-            <ContactLink href={GITHUB_LINK} target="_blank">
-              <GithubSvg />
-            </ContactLink>
-            <ContactLink href={LINKEDIN_LINK} target="_blank">
-              <LinkedInSvg />
-            </ContactLink>
-            <ContactLink href={EMAIL_LINK} target="_blank">
-              <MailSvg />
-            </ContactLink>
-          </ContactSemiCircle>
-        </FixedContactSection>
-
-        <ScrollToTopBtn onClick={scrollToTop}>
-          <FloweryLinkSvg />
-        </ScrollToTopBtn>
+          <ScrollToTopBtn onClick={scrollToTop}>
+            <FloweryLinkSvg />
+          </ScrollToTopBtn>
+        </div>
       </Body>
     </html>
   );
