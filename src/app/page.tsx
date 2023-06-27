@@ -4,10 +4,10 @@ import tw from "tailwind-styled-components";
 
 import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
-import Work from "@/components/sections/Work";
 import Contact from "@/components/sections/Contact";
 
 import Text from "@/components/Text";
+import Projects from "@/components/sections/Projects";
 
 const Section = tw.section`
  items-start md:py-[100px] sm:py-[80px] py-[60px]
@@ -25,7 +25,7 @@ const sections = [
   },
   {
     to: "work",
-    element: <Work />,
+    element: <Projects />,
   },
   {
     to: "contact",
@@ -33,10 +33,10 @@ const sections = [
   },
 ];
 
-export default function Home() {
+export default function Main() {
   return (
     <div className="relative">
-      <Section className="">
+      <Section className="h-[90vh]">
         <div className="flex flex-col">
           <Text variant="L2" color="sec-100">
             Muhammad-Tahir Sanuth.

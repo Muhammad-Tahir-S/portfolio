@@ -5,3 +5,10 @@ export type Experience = {
   url?: string;
   duties?: (string | { text: string; link: string })[];
 };
+
+export type Project = {
+  title?: string;
+  description?: string;
+  techStack?: string[];
+  url?: string;
+};

@@ -5,6 +5,7 @@ import { usePrevious } from "@/hooks/usePrevious";
 import ExperienceTabs from "../ExperienceTabs";
 import { useExperienceTransitions } from "@/hooks/gsap/useExperienceTransitions";
 import tw from "tailwind-styled-components";
+import useWindowDimensions from "@/hooks/useWindowDimension";
 
 export default function Experience() {
   const [activeTab, setActiveTab] = useState("Codygo");
@@ -21,13 +22,29 @@ export default function Experience() {
   };
   const { name, role, duration, url, duties } = activePlace;
 
+  const vw = useWindowDimensions();
+  const experienceSectionEl = document.querySelector("#experience");
+  const leftBackgroundWidth =
+    experienceSectionEl && vw.width > 1279
+      ? vw.width * 0.6 - 150 - (vw.width - 300) * 0.15
+      : experienceSectionEl && vw.width > 1023
+      ? vw.width * 0.6 - 150 - (vw.width - 300) * 0.1
+      : experienceSectionEl && vw.width > 767
+      ? vw.width * 0.6 - 100
+      : 0;
   return (
     <PageSection
       className="md:bg-primary-200 md:p-5 md:rounded-md md:drop-shadow-2xl"
       number="02."
       title="Places I've worked"
       leftOffset
-      leftBackground
+      backgroundElement={
+        <DarkBackgroundPattern
+          style={{
+            width: leftBackgroundWidth,
+          }}
+        />
+      }
     >
       <div className="flex flex-col md:flex-row min-h-[300px] ">
         <ExperienceTabs
@@ -105,6 +122,11 @@ after:top-[100%] after:left-0 after:bg-secondary-100
 hover:after:w-full hover:after:h-[1px] 
 hover:after:transition-width after:ease-in 
 hover:after:duration-500 text-secondary-100
+`;
+
+const DarkBackgroundPattern = tw.div`
+hidden md:block absolute h-full bg-primary-100 
+left-0 top-0 z-0  rounded-l-md
 `;
 
 const places = [

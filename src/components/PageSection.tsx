@@ -9,7 +9,7 @@ type PageSection = {
   title: string;
   className?: string;
   leftOffset?: boolean;
-  leftBackground?: boolean;
+  backgroundElement?: ReactNode;
 };
 
 export default function PageSection({
@@ -18,19 +18,8 @@ export default function PageSection({
   title,
   leftOffset,
   className,
-  leftBackground,
+  backgroundElement,
 }: PageSection) {
-  const vw = useWindowDimensions();
-  const experienceSectionEl = document.querySelector("#experience");
-  const leftBackgroundWidth =
-    experienceSectionEl && vw.width > 1279
-      ? vw.width * 0.6 - 150 - (vw.width - 300) * 0.15
-      : experienceSectionEl && vw.width > 1023
-      ? vw.width * 0.6 - 150 - (vw.width - 300) * 0.1
-      : experienceSectionEl && vw.width > 767
-      ? vw.width * 0.6 - 100
-      : 0;
-
   return (
     <div
       className={clsx(
@@ -39,14 +28,7 @@ export default function PageSection({
         className
       )}
     >
-      {leftBackground && (
-        <div
-          style={{
-            width: leftBackgroundWidth,
-          }}
-          className="hidden md:block absolute h-full bg-primary-100 left-0 top-0 z-0  rounded-l-md"
-        ></div>
-      )}
+      {backgroundElement}
       <div className="relative w-fit z-10">
         <Text
           variant="H3"
