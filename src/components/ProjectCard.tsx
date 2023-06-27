@@ -55,13 +55,13 @@ export default function ProjectCard({
 }
 
 const Tail = tw.li`
-card snake shadow w-full h-full hover:scale-[1.02]  
+card snake shadow-2xl w-full h-full hover:scale-[1.02]  
 transition-all ease-in duration-200 hover:shadow-2xl
 `;
 
 const Title = tw(Text)`
 transition-colors ease-in duration-200 mt-4 
-md:mt-[35px]`;
+`;
 
 const Description = tw(Text)`
 mt-[10px] transition-colors ease-in duration-200

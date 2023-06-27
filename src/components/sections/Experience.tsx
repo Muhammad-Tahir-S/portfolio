@@ -32,6 +32,7 @@ export default function Experience() {
       : experienceSectionEl && vw.width > 767
       ? vw.width * 0.6 - 100
       : 0;
+  //60% of viewport width - left body padding - (10% or 15% of section width)
   return (
     <PageSection
       className="md:bg-primary-200 md:p-5 md:rounded-md md:drop-shadow-2xl"

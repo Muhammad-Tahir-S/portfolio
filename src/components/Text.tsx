@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 import { clsx } from "clsx";
 
 type TextVariant =
@@ -43,6 +43,7 @@ interface IText {
   color: TextColor;
   className?: string;
   uppercase?: boolean;
+  style?: CSSProperties;
 }
 export default function Text({
   children,
@@ -50,9 +51,11 @@ export default function Text({
   color = "white",
   className,
   uppercase,
+  style,
 }: IText) {
   return (
     <p
+      style={style}
       className={clsx(
         "ease-in transition-colors duration-100",
         className,

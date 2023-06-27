@@ -8,7 +8,7 @@ export default function Projects() {
     <PageSection
       className="relative"
       number="03."
-      title="Things I've Worked On"
+      title="Things I've Built"
       backgroundElement={<DarkCircleBackground />}
     >
       <ProjectList>
@@ -43,7 +43,7 @@ const projects: Project[] = [
     title: "Addressable",
     description:
       "A cross between Web2 and Web3. Track audiences from social-media interactions to their on-chain activities.",
-    techStack: ["React", "AWS", "Tailwind", "Zustand"],
+    techStack: ["React", "AWS", "Tailwind", "Zustand", "Cypress"],
     url: "https://www.addressable.io/product",
   },
   {
@@ -55,7 +55,7 @@ const projects: Project[] = [
   {
     title: "FirstActive365",
     description: "Hospital management software for FirstActive365.",
-    techStack: ["React", "Styled Components", "Redux"],
+    techStack: ["React", "Styled-Components", "Redux"],
     url: "https://firstactive365.com/",
   },
   {
@@ -63,5 +63,12 @@ const projects: Project[] = [
     description:
       "Create digital cards—greeting, anniversary, birthday, etc—and attach them to physical gifts. (in development).",
     techStack: ["React", "Tailwind", "XState"],
+  },
+  {
+    title: "QboAdapter.",
+    description:
+      "Transform merchant billing/payment data to Quickbook's formats and vice-versa",
+    techStack: ["Typescript", "Jest"],
+    url: "https://quickbooks.intuit.com/global/",
   },
 ];
