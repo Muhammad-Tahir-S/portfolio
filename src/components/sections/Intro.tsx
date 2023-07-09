@@ -5,13 +5,16 @@ import Text from "../Text";
 
 export default function Intro() {
   const vw = useWindowDimensions();
-  const IntroSectionEl = document.querySelector(".intro");
+  let introSectionEl;
+  if (typeof window === "object") {
+    introSectionEl = document.querySelector(".intro");
+  }
   const leftBackgroundWidth =
-    IntroSectionEl && vw.width > 1279
+    introSectionEl && vw.width > 1279
       ? vw.width * 0.6 - 150
-      : IntroSectionEl && vw.width > 1023
+      : introSectionEl && vw.width > 1023
       ? vw.width * 0.6 - 150
-      : IntroSectionEl && vw.width > 767
+      : introSectionEl && vw.width > 767
       ? vw.width * 0.6 - 100
       : "90%";
 

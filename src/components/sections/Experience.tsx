@@ -23,7 +23,11 @@ export default function Experience() {
   const { name, role, duration, url, duties } = activePlace;
 
   const vw = useWindowDimensions();
-  const experienceSectionEl = document.querySelector("#experience");
+
+  let experienceSectionEl;
+  if (typeof window === "object") {
+    experienceSectionEl = document.querySelector("#experience");
+  }
   const leftBackgroundWidth =
     experienceSectionEl && vw.width > 1279
       ? vw.width * 0.6 - 150 - (vw.width - 300) * 0.15
