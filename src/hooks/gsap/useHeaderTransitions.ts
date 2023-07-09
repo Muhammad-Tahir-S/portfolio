@@ -113,7 +113,7 @@ export function useHeaderTransitions(ref: RefObject<HTMLDivElement>) {
 
       window.location.href === baseUrl
         ? tl.from(
-            ".layout-svg",
+            ".layout-fixed-footer-item",
             {
               duration: 2,
               opacity: 0,
@@ -124,7 +124,7 @@ export function useHeaderTransitions(ref: RefObject<HTMLDivElement>) {
             3
           )
         : tl.from(
-            ".layout-svg",
+            ".layout-fixed-footer-item",
             {
               duration: 1,
               opacity: 0,

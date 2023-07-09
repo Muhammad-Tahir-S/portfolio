@@ -37,7 +37,7 @@ export default function Experience() {
     <PageSection
       className="md:bg-primary-200 md:p-5 md:rounded-md md:drop-shadow-2xl"
       number="02."
-      title="Places I've worked"
+      title="Places I've worked."
       leftOffset
       backgroundElement={
         <DarkBackgroundPattern
@@ -133,7 +133,7 @@ left-0 top-0 z-0  rounded-l-md
 const places = [
   {
     name: "Codygo",
-    role: "Frontend Engineer",
+    role: "Software Engineer",
     duration: "Aug 2022 - Present",
     url: "https://codygo.com",
     duties: [

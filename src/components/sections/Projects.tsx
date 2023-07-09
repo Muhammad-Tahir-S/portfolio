@@ -8,7 +8,7 @@ export default function Projects() {
     <PageSection
       className="relative"
       number="03."
-      title="Things I've Built"
+      title="Things I've Built."
       backgroundElement={<DarkCircleBackground />}
     >
       <ProjectList>

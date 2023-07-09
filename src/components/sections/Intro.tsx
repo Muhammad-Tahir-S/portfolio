@@ -32,7 +32,7 @@ export default function Intro() {
           I build fullstack, highly performant, accessible applications.
           Presently working on the Addressable product at Codygo.
         </Text>
-        <div className="mt-10 flex gap-6 w-full">
+        <div className="mt-10 flex gap-6 w-full lg:w-[80%]">
           <a href="#contact" className="w-[50%]">
             <Button variant="secondary" className="w-full py-5">
               Contact

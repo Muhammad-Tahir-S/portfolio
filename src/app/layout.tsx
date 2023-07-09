@@ -42,13 +42,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <head />
       <Body className={clsx("relative", openSans.className)}>
-        <div className="fixed bg-primary-100 z-0 md:top-0 md:right-0 md:h-[100vh] md:w-[40vw] "></div>
+        <RightDarkBackground />
+
         <div className="relative" ref={bodyRef}>
           <LayoutHeader
             sidebarOpen={sidebarOpen}
             setSidebarOpen={setSidebarOpen}
           />
           <CenterLoadLogo />
+
           <LayoutBody $sidebarOpen={sidebarOpen}>{children}</LayoutBody>
 
           <FixedContactSection>
@@ -78,6 +80,11 @@ const Body = tw.body`
 bg-primary-150 overflow-x-hidden
 `;
 
+const RightDarkBackground = tw.div`
+fixed bg-primary-100 z-0 md:top-0 
+md:right-0 md:h-[100vh] md:w-[40vw]
+`;
+
 const CenterLoadLogo = tw(Logo)`
 hidden absolute left-[calc(50%_-_21px)] 
 top-[calc(50%_-_21px)] center-load-logo 
@@ -87,13 +94,13 @@ transition-colors duration-150`;
 
 const ScrollToTopBtn = tw.button`
 hidden md:block bottom-[20px]
-md:right-[25px] lg:right-[39px] fixed layout-svg 
+md:right-[25px] lg:right-[39px] fixed layout-fixed-footer-item 
 cursor-pointer z-[999]
 `;
 
 const FixedContactSection = tw.div`
 fixed hidden lg:block left-[32px] bottom-7 h-fit z-[999]
-w-fit 
+w-fit layout-fixed-footer-item
 `;
 
 const ContactSemiCircle = tw.div`
