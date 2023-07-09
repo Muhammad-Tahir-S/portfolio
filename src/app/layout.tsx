@@ -49,19 +49,24 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             sidebarOpen={sidebarOpen}
             setSidebarOpen={setSidebarOpen}
           />
-          <CenterLoadLogo />
 
           <LayoutBody $sidebarOpen={sidebarOpen}>{children}</LayoutBody>
 
+          <CenterLoadLogo />
+
           <FixedContactSection>
             <ContactSemiCircle>
-              <ContactLink href={GITHUB_LINK} target="_blank">
+              <ContactLink href={GITHUB_LINK} target="_blank" rel="noreferrer">
                 <GithubSvg />
               </ContactLink>
-              <ContactLink href={LINKEDIN_LINK} target="_blank">
+              <ContactLink
+                href={LINKEDIN_LINK}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <LinkedInSvg />
               </ContactLink>
-              <ContactLink href={EMAIL_LINK} target="_blank">
+              <ContactLink href={EMAIL_LINK} target="_blank" rel="noreferrer">
                 <MailSvg />
               </ContactLink>
             </ContactSemiCircle>

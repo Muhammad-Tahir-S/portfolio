@@ -27,7 +27,7 @@ export default function Projects() {
 }
 
 const ProjectList = tw.ul`
-grid grid-cols-work w-min-[400px]:grid-cols-work-sm 
+grid min-[400px]:grid-cols-work grid-cols-work-sm 
 list-none mt-[24px] gap-[15px] p-0 relative
 `;
 
