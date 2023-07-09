@@ -1,31 +1,12 @@
 import useWindowDimensions from "@/hooks/useWindowDimension";
-import { useEffect } from "react";
 import tw from "tailwind-styled-components";
 import Button from "../Button";
 import Text from "../Text";
 
 export default function Intro() {
-  const vw = useWindowDimensions();
-
-  const introSectionEl = document.querySelector(".intro");
-  const leftBackgroundWidth =
-    introSectionEl && vw.width > 1279
-      ? vw.width * 0.6 - 150
-      : introSectionEl && vw.width > 1023
-      ? vw.width * 0.6 - 150
-      : introSectionEl && vw.width > 767
-      ? vw.width * 0.6 - 100
-      : "90%";
-
-  console.log("introSectionEl", introSectionEl);
-  console.log("leftBackgroundWidth", leftBackgroundWidth);
-
   return (
-    <Section className="h-[90vh] intro">
-      <div
-        style={{ width: leftBackgroundWidth }}
-        className="flex flex-col pr-6"
-      >
+    <Section className="h-[90vh] intro mt-20">
+      <div style={{ width: "63%" }} className="flex flex-col pr-6">
         <Text variant="L2" color="sec-100">
           Muhammad-Tahir Sanuth.
         </Text>
