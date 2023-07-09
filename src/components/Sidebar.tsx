@@ -93,4 +93,5 @@ close-menu-btn
 
 const NavItemCon = tw.div`
 flex-1 flex flex-col gap-[60px] mt-[50px] p-10
+overflow-y-scroll
 `;

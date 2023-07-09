@@ -4,8 +4,8 @@ import LinkedIn from "@/assets/icons/linked-in.svg";
 
 export default function Contact() {
   return (
-    <div className="w-full ">
-      <div className="w-[70%] mx-auto text-center bg-gray-300  p-6">
+    <div className="w-full">
+      <div className="w-full rounded-sm md:w-[70%] mx-auto text-center bg-gray-300 p-6">
         <Text variant="H4" color="pri-200" className="font-semibold">
           Presently open to oppportunities. You can reach me at:&nbsp;
           <span className="text-primary-300">
