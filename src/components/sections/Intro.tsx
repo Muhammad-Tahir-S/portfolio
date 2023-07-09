@@ -1,14 +1,13 @@
 import useWindowDimensions from "@/hooks/useWindowDimension";
+import { useEffect } from "react";
 import tw from "tailwind-styled-components";
 import Button from "../Button";
 import Text from "../Text";
 
 export default function Intro() {
   const vw = useWindowDimensions();
-  let introSectionEl;
-  if (typeof window === "object") {
-    introSectionEl = document.querySelector(".intro");
-  }
+
+  const introSectionEl = document.querySelector(".intro");
   const leftBackgroundWidth =
     introSectionEl && vw.width > 1279
       ? vw.width * 0.6 - 150
@@ -17,6 +16,9 @@ export default function Intro() {
       : introSectionEl && vw.width > 767
       ? vw.width * 0.6 - 100
       : "90%";
+
+  console.log("introSectionEl", introSectionEl);
+  console.log("leftBackgroundWidth", leftBackgroundWidth);
 
   return (
     <Section className="h-[90vh] intro">

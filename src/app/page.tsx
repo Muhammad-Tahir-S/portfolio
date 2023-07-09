@@ -36,7 +36,8 @@ const sections = [
 export default function Main() {
   return (
     <div className="relative">
-      <Intro />
+      {typeof window === "object" ? <Intro /> : undefined}
+
       {sections.map((sec) => (
         <Section key={sec.to} id={sec.to}>
           {sec.element}
