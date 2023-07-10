@@ -5,8 +5,8 @@ import Text from "../Text";
 
 export default function Intro() {
   return (
-    <Section className="h-[90vh] intro mt-20">
-      <div style={{ width: "63%" }} className="flex flex-col pr-6">
+    <Section className="h-[90vh] intro mt-0 md:mt-20 lg:mt-10">
+      <div className="flex flex-col pr-6 w-[90%] md:w-[63%]">
         <Text variant="L2" color="sec-100">
           Muhammad-Tahir Sanuth.
         </Text>
